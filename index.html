@@ -726,6 +726,91 @@
       margin-top: auto;
     }
 
+    .lead-form-section {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.68) 0%, rgba(239, 238, 233, 0.82) 100%);
+    }
+
+    .lead-form-card {
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: var(--soft-shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .lead-form {
+      display: grid;
+      gap: 18px;
+    }
+
+    .lead-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .form-field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field label {
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 820;
+      line-height: 1.25;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      min-height: 50px;
+      padding: 13px 15px;
+      border: 1px solid rgba(16, 19, 22, 0.12);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--ink);
+      font: inherit;
+      line-height: 1.35;
+      outline: none;
+      transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .form-field textarea {
+      min-height: 128px;
+      resize: vertical;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: rgba(11, 63, 73, 0.5);
+      background: var(--white);
+      box-shadow: 0 0 0 4px rgba(11, 63, 73, 0.1);
+    }
+
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: rgba(104, 112, 120, 0.72);
+    }
+
+    .form-help {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .lead-form .button {
+      width: fit-content;
+      min-width: 220px;
+      cursor: pointer;
+    }
+
     .process {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1173,6 +1258,7 @@
     .call-card,
     .tier,
     .faq,
+    .lead-form-card,
     .check-panel,
     .note-panel,
     .metric,
@@ -1185,7 +1271,8 @@
     .quick-card:hover,
     .trust-strip:hover,
     .check-panel:hover,
-    .note-panel:hover {
+    .note-panel:hover,
+    .lead-form-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 22px 58px rgba(20, 25, 30, 0.1);
     }
@@ -1349,6 +1436,7 @@
       .call-grid,
       .tiers,
       .faq-grid,
+      .lead-form-grid,
       .process {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -1444,9 +1532,19 @@
       .call-grid,
       .tiers,
       .faq-grid,
+      .lead-form-grid,
       .process,
       .metric-row {
         grid-template-columns: 1fr;
+      }
+
+      .lead-form-card {
+        padding: 22px;
+      }
+
+      .lead-form .button {
+        width: 100%;
+        min-width: 0;
       }
 
       .trust-item {
@@ -1951,6 +2049,56 @@
       </div>
     </section>
 
+    <section class="lead-form-section" aria-labelledby="lead-form-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="lead-form-title">Küldd el a kiszemelt autó hirdetését</h2>
+          <p>Add meg a legfontosabb adatokat, hogy gyorsan át lehessen látni a típust, a helyszínt és a sürgősséget.</p>
+        </div>
+        <div class="lead-form-card">
+          <form class="lead-form" action="mailto:info@carvex.hu" method="get" enctype="text/plain">
+            <input type="hidden" name="subject" value="Használtautó hirdetés átvizsgáláshoz">
+            <div class="lead-form-grid">
+              <div class="form-field">
+                <label for="lead-name">Név</label>
+                <input id="lead-name" name="Név" type="text" autocomplete="name" required>
+              </div>
+              <div class="form-field">
+                <label for="lead-phone">Telefonszám</label>
+                <input id="lead-phone" name="Telefonszám" type="tel" autocomplete="tel">
+              </div>
+              <div class="form-field">
+                <label for="lead-email">Email</label>
+                <input id="lead-email" name="Email" type="email" autocomplete="email">
+              </div>
+              <div class="form-field">
+                <label for="lead-link">Hirdetés linkje</label>
+                <input id="lead-link" name="Hirdetés linkje" type="url" inputmode="url" autocomplete="url" required>
+              </div>
+              <div class="form-field">
+                <label for="lead-car">Autó típusa / évjárata</label>
+                <input id="lead-car" name="Autó típusa / évjárata" type="text" autocomplete="off">
+              </div>
+              <div class="form-field">
+                <label for="lead-location">Hol található az autó?</label>
+                <input id="lead-location" name="Hol található az autó?" type="text" autocomplete="address-level2">
+              </div>
+              <div class="form-field">
+                <label for="lead-urgency">Mikor lenne sürgős?</label>
+                <input id="lead-urgency" name="Mikor lenne sürgős?" type="text" autocomplete="off">
+              </div>
+              <div class="form-field full">
+                <label for="lead-note">Megjegyzés</label>
+                <textarea id="lead-note" name="Megjegyzés" placeholder="Például eladó elérhetősége, egyeztetett időpont, ismert hiba vagy kérdés."></textarea>
+              </div>
+            </div>
+            <p class="form-help">A név, a hirdetés linkje és legalább egy elérhetőség szükséges.</p>
+            <button class="button primary" type="submit">Hirdetés elküldése</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <section id="kapcsolat" class="final">
       <div class="container">
         <h2>Ne a vásárlás után derüljön ki, mit rejt az autó.</h2>
@@ -2000,8 +2148,9 @@
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mobileMenu = document.querySelector('#mobile-menu');
     const desktopNavMedia = window.matchMedia('(min-width: 941px)');
+    const leadForm = document.querySelector('.lead-form');
     const revealTargets = document.querySelectorAll(
-      'section:not(.hero) .section-head, .call-card, .check-panel, .note-panel, .tier, .step, .report-layout > *, .bmw-layout > *, .expert-layout > *, .faq, .cta-band .cta-row, .final .container'
+      'section:not(.hero) .section-head, .call-card, .check-panel, .note-panel, .tier, .step, .report-layout > *, .bmw-layout > *, .expert-layout > *, .faq, .lead-form-card, .cta-band .cta-row, .final .container'
     );
 
     revealTargets.forEach((element) => element.classList.add('reveal'));
@@ -2055,6 +2204,43 @@
       desktopNavMedia.addListener(handleDesktopNav);
     }
     handleDesktopNav(desktopNavMedia);
+
+    if (leadForm) {
+      const phoneInput = leadForm.querySelector('#lead-phone');
+      const emailInput = leadForm.querySelector('#lead-email');
+      const contactMessage = 'Adj meg telefonszámot vagy email címet.';
+
+      const setContactValidity = () => {
+        const hasContact = phoneInput.value.trim() || emailInput.value.trim();
+        phoneInput.setCustomValidity(hasContact ? '' : contactMessage);
+        emailInput.setCustomValidity('');
+      };
+
+      phoneInput.addEventListener('input', setContactValidity);
+      emailInput.addEventListener('input', setContactValidity);
+
+      leadForm.addEventListener('submit', (event) => {
+        setContactValidity();
+
+        if (!leadForm.checkValidity()) {
+          event.preventDefault();
+          leadForm.reportValidity();
+          return;
+        }
+
+        event.preventDefault();
+
+        const formData = new FormData(leadForm);
+        const subject = formData.get('subject') || 'Használtautó hirdetés átvizsgáláshoz';
+        formData.delete('subject');
+
+        const body = Array.from(formData.entries())
+          .map(([label, value]) => `${label}: ${String(value).trim() || '-'}`)
+          .join('\n');
+
+        window.location.href = `mailto:info@carvex.hu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      });
+    }
 
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
