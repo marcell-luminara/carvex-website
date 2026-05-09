@@ -691,6 +691,25 @@
       font-weight: 720;
     }
 
+    .tier-summary {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.5;
+    }
+
+    .pricing-note {
+      max-width: 860px;
+      margin: 24px auto 0;
+      padding: 18px 22px;
+      border: 1px solid rgba(16, 19, 22, 0.08);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.64);
+      color: var(--muted);
+      text-align: center;
+      box-shadow: 0 10px 26px rgba(16, 19, 22, 0.05);
+    }
+
     .tier .button {
       width: 100%;
       margin-top: auto;
@@ -1687,13 +1706,14 @@
       <div class="container">
         <div class="section-head">
           <h2 id="packages-title">Három egyszerű csomag</h2>
-          <p>Az ár a járműtől, helyszíntől és az ellenőrzés mélységétől függ. A végleges díjat egyeztetéskor pontosítjuk.</p>
+          <p>Átlátható induló árakkal dolgozom, a pontos díjat pedig mindig előre egyeztetjük az autó és a helyszín alapján.</p>
         </div>
         <div class="tiers">
           <article class="tier">
             <span class="badge">Gyors szűréshez</span>
             <h3>Alap átvizsgálás</h3>
-            <p class="price">Egyedi ár <span>helyszín és típus alapján</span></p>
+            <p class="price">29 900 Ft-tól</p>
+            <p class="tier-summary">Gyors, célzott helyszíni ellenőrzés vásárlás előtti döntéshez.</p>
             <ul>
               <li><span class="tick">✓</span><span>Vizuális és alap mechanikai ellenőrzés</span></li>
               <li><span class="tick">✓</span><span>Motor, futómű, fékek, gumik szemrevételezése</span></li>
@@ -1706,7 +1726,8 @@
           <article class="tier featured">
             <span class="badge">Ajánlott</span>
             <h3>Részletes szakvélemény</h3>
-            <p class="price">Egyedi ár <span>a legtöbb vásárláshoz ezt javaslom</span></p>
+            <p class="price">39 900 Ft-tól</p>
+            <p class="tier-summary">Teljesebb átvizsgálás, diagnosztika, típushibák, várható költségek és érthető vásárlási javaslat.</p>
             <ul>
               <li><span class="tick">✓</span><span>Alap csomag teljes tartalma</span></li>
               <li><span class="tick">✓</span><span>Próbaút, OBD áttekintés, festékvastagság-mérés</span></li>
@@ -1718,8 +1739,9 @@
 
           <article class="tier">
             <span class="badge">Típusismerettel</span>
-            <h3>Típusismereti csomag</h3>
-            <p class="price">Egyedi ár <span>különösen BMW és magasabb kockázatú autóknál</span></p>
+            <h3>BMW / típusismereti csomag</h3>
+            <p class="price">49 900 Ft-tól</p>
+            <p class="tier-summary">BMW-k és magasabb kockázatú típusok esetén részletesebb ellenőrzés típusspecifikus hibapontokkal, diagnosztikai fókuszpontokkal és vásárlási tanáccsal.</p>
             <ul>
               <li><span class="tick">✓</span><span>Részletes szakvélemény teljes tartalma</span></li>
               <li><span class="tick">✓</span><span>Adott típus ismert hibáinak átbeszélése</span></li>
@@ -1729,6 +1751,7 @@
             <a class="button secondary" href="mailto:info@carvex.hu?subject=Tipusismereti%20csomag">Elküldöm a hirdetést</a>
           </article>
         </div>
+        <p class="pricing-note">A feltüntetett árak induló árak. A végleges díj az autó helyszínétől, típusától, értékétől és a kért vizsgálati mélységtől függ. Az árat minden esetben előre egyeztetjük, rejtett költségek nélkül.</p>
       </div>
     </section>
 
