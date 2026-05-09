@@ -91,6 +91,7 @@
     .brand {
       display: inline-flex;
       align-items: center;
+      min-width: 0;
       flex: 0 0 auto;
     }
 
@@ -195,6 +196,7 @@
       display: none;
       align-items: center;
       gap: 8px;
+      flex: 0 0 auto;
     }
 
     .mobile-cta {
@@ -1661,7 +1663,7 @@
 
       .nav {
         min-height: 64px;
-        gap: 10px;
+        gap: 8px;
       }
 
       .mobile-menu {
@@ -1670,8 +1672,7 @@
       }
 
       .mobile-cta {
-        min-height: 42px;
-        padding: 0 15px;
+        display: none;
       }
 
       .mobile-menu-toggle {
@@ -1680,7 +1681,7 @@
       }
 
       .brand-logo img {
-        width: 150px;
+        width: clamp(126px, 36vw, 150px);
         max-height: 54px;
       }
 
@@ -1781,12 +1782,7 @@
 
     @media (max-width: 430px) {
       .brand-logo img {
-        width: 136px;
-      }
-
-      .mobile-cta {
-        padding: 0 14px;
-        font-size: 0.88rem;
+        width: clamp(118px, 35vw, 136px);
       }
 
       .mobile-cta-full {
@@ -1819,9 +1815,7 @@
       }
 
       .mobile-cta {
-        min-height: 40px;
-        padding: 0 13px;
-        font-size: 0.9rem;
+        display: none;
       }
 
       .mobile-cta-full {
