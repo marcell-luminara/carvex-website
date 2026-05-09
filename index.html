@@ -655,12 +655,15 @@
       border-color: rgba(11, 63, 73, 0.22);
       box-shadow: 0 30px 80px rgba(11, 63, 73, 0.16);
       transform: translateY(-6px);
+      padding-top: 64px;
     }
 
     .badge {
-      width: fit-content;
-      margin-bottom: 16px;
-      padding: 7px 11px;
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      z-index: 2;
+      padding: 7px 12px;
       border-radius: 999px;
       background: rgba(197, 154, 72, 0.14);
       color: #765211;
@@ -668,12 +671,19 @@
       font-weight: 880;
       text-transform: uppercase;
       letter-spacing: 0.04em;
+      border: 1px solid rgba(197, 154, 72, 0.24);
+      white-space: nowrap;
+    }
+
+    .tier-head {
+      margin-bottom: 8px;
     }
 
     .tier h3 {
       margin-bottom: 8px;
       font-size: 1.45rem;
       line-height: 1.14;
+      min-height: 3.2rem;
     }
 
     .price {
@@ -696,6 +706,7 @@
       color: var(--muted);
       font-size: 0.98rem;
       line-height: 1.5;
+      min-height: 4.5rem;
     }
 
     .pricing-note {
@@ -1543,6 +1554,20 @@
       .quick-card {
         padding: 22px;
       }
+
+      .tier.featured {
+        padding-top: 60px;
+      }
+
+      .badge {
+        top: 14px;
+        right: 14px;
+      }
+
+      .tier h3,
+      .tier-summary {
+        min-height: 0;
+      }
     }
   </style>
 </head>
@@ -1710,9 +1735,11 @@
         </div>
         <div class="tiers">
           <article class="tier">
-            <h3>Alapcsomag</h3>
-            <p class="price">34 990 Ft-tól</p>
-            <p class="tier-summary">Gyakorlati helyszíni átvizsgálás vásárlás előtt.</p>
+            <div class="tier-head">
+              <h3>Alapcsomag</h3>
+              <p class="price">34 990 Ft-tól</p>
+              <p class="tier-summary">Gyakorlati helyszíni átvizsgálás vásárlás előtt.</p>
+            </div>
             <ul>
               <li><span class="tick">✓</span><span>Külső és belső állapot átnézése</span></li>
               <li><span class="tick">✓</span><span>Karosszéria és sérülésnyomok ellenőrzése</span></li>
@@ -1727,9 +1754,11 @@
 
           <article class="tier featured">
             <span class="badge">Legnépszerűbb választás</span>
-            <h3>Részletes szakvélemény</h3>
-            <p class="price">44 990 Ft-tól</p>
-            <p class="tier-summary">Részletesebb döntéstámogatás típusspecifikus hibákkal és fenntartási rizikókkal.</p>
+            <div class="tier-head">
+              <h3>Részletes szakvélemény</h3>
+              <p class="price">44 990 Ft-tól</p>
+              <p class="tier-summary">Részletesebb döntéstámogatás típusspecifikus hibákkal és fenntartási rizikókkal.</p>
+            </div>
             <ul>
               <li><span class="tick">✓</span><span>Az Alapcsomag teljes tartalma</span></li>
               <li><span class="tick">✓</span><span>Adott típus ismert hibáinak átbeszélése</span></li>
@@ -1742,9 +1771,11 @@
           </article>
 
           <article class="tier">
-            <h3>Több autós döntéstámogató csomag</h3>
-            <p class="price">89 990 Ft-tól</p>
-            <p class="tier-summary">Ha több kiszemelt autó közül választanál, segítek előszűrni és összehasonlítani a legjobb jelölteket.</p>
+            <div class="tier-head">
+              <h3>Több autós döntéstámogató csomag</h3>
+              <p class="price">89 990 Ft-tól</p>
+              <p class="tier-summary">Ha több kiszemelt autó közül választanál, segítek előszűrni és összehasonlítani a legjobb jelölteket.</p>
+            </div>
             <ul>
               <li><span class="tick">✓</span><span>Több hirdetés előzetes átnézése</span></li>
               <li><span class="tick">✓</span><span>Segítség kiválasztani, melyik autót érdemes személyesen megnézni</span></li>
