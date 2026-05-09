@@ -899,10 +899,56 @@
     }
 
     footer {
-      padding: 26px 0 88px;
+      padding: 34px 0 88px;
       background: var(--ink);
       color: rgba(255, 255, 255, 0.62);
       font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      display: grid;
+      gap: 26px;
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .social-link {
+      width: 52px;
+      height: 52px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      color: rgba(255, 255, 255, 0.58);
+      transition: transform 180ms ease, color 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-3px);
+      border-color: rgba(197, 154, 72, 0.42);
+      background: rgba(255, 255, 255, 0.08);
+      color: #d7b56d;
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.22);
+    }
+
+    .social-link svg {
+      width: 27px;
+      height: 27px;
+      display: block;
+      fill: currentColor;
+      stroke: currentColor;
+    }
+
+    .social-link svg [fill="none"] {
+      fill: none;
     }
 
     .footer-row {
@@ -1296,6 +1342,7 @@
       .hero-inner,
       .container,
       .cta-row,
+      .footer-inner,
       .footer-row,
       .trust-strip {
         width: min(360px, calc(100% - 36px));
@@ -1403,6 +1450,17 @@
         justify-content: flex-start;
       }
 
+      .footer-social {
+        justify-content: flex-start;
+        gap: 14px;
+      }
+
+      .social-link {
+        width: 48px;
+        height: 48px;
+        border-radius: 16px;
+      }
+
     }
 
     @media (max-width: 360px) {
@@ -1410,6 +1468,7 @@
       .hero-inner,
       .container,
       .cta-row,
+      .footer-inner,
       .footer-row,
       .trust-strip {
         width: min(100% - 28px, 340px);
@@ -1845,13 +1904,35 @@
   </main>
 
   <footer>
-    <div class="footer-row">
-      <span>© 2026 Carvex. Minden jog fenntartva.</span>
-      <nav class="footer-links" aria-label="Jogi információk">
-        <a href="impresszum.html">Impresszum</a>
-        <a href="adatkezelesi-tajekoztato.html">Adatkezelési tájékoztató</a>
-        <a href="aszf.html">ÁSZF</a>
+    <div class="footer-inner">
+      <nav class="footer-social" aria-label="Közösségi és kapcsolat linkek">
+        <a class="social-link" href="mailto:info@carvex.hu" aria-label="Email küldése">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 6.5h16v11H4z"></path>
+            <path fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="m4.8 7.3 7.2 5.3 7.2-5.3"></path>
+          </svg>
+        </a>
+        <a class="social-link" href="https://www.facebook.com/carvex.hu" target="_blank" rel="noopener" aria-label="Carvex Facebook oldal">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14.2 8.2V6.9c0-.7.5-1.1 1.2-1.1h1.7V3h-2.5c-2.8 0-4.3 1.7-4.3 4.2v1H8v3.1h2.3V21h3.5v-9.7h2.8l.5-3.1h-3z"></path>
+          </svg>
+        </a>
+        <a class="social-link" href="https://www.instagram.com/carvex.hu/" target="_blank" rel="noopener" aria-label="Carvex Instagram oldal">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="4" y="4" width="16" height="16" rx="4.6" fill="none" stroke-width="1.8"></rect>
+            <circle cx="12" cy="12" r="3.6" fill="none" stroke-width="1.8"></circle>
+            <circle cx="16.8" cy="7.2" r="1.1"></circle>
+          </svg>
+        </a>
       </nav>
+      <div class="footer-row">
+        <span>© 2026 Carvex. Minden jog fenntartva.</span>
+        <nav class="footer-links" aria-label="Jogi információk">
+          <a href="impresszum.html">Impresszum</a>
+          <a href="adatkezelesi-tajekoztato.html">Adatkezelési tájékoztató</a>
+          <a href="aszf.html">ÁSZF</a>
+        </nav>
+      </div>
     </div>
   </footer>
   <script>
