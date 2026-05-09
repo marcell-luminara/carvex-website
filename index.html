@@ -75,6 +75,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 24px;
+      position: relative;
     }
 
     .brand {
@@ -145,7 +146,8 @@
     }
 
     .button,
-    .nav-cta {
+    .nav-cta,
+    .mobile-menu-toggle {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -161,7 +163,8 @@
     }
 
     .button:hover,
-    .nav-cta:hover {
+    .nav-cta:hover,
+    .mobile-menu-toggle:hover {
       transform: translateY(-1px);
     }
 
@@ -175,6 +178,100 @@
     .button.primary:hover,
     .nav-cta:hover {
       background: var(--petrol-2);
+    }
+
+    .mobile-nav-actions {
+      display: none;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mobile-cta {
+      display: none;
+    }
+
+    .mobile-menu-toggle {
+      width: 48px;
+      padding: 0;
+      border-color: rgba(16, 19, 22, 0.12);
+      background: rgba(255, 255, 255, 0.66);
+      color: var(--ink);
+      cursor: pointer;
+      box-shadow: 0 10px 26px rgba(16, 19, 22, 0.06);
+    }
+
+    .mobile-menu-toggle svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+    }
+
+    .mobile-menu-toggle .icon-close {
+      display: none;
+    }
+
+    .topbar.menu-open .mobile-menu-toggle .icon-menu {
+      display: none;
+    }
+
+    .topbar.menu-open .mobile-menu-toggle .icon-close {
+      display: block;
+    }
+
+    .mobile-menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      right: 0;
+      display: grid;
+      gap: 8px;
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.82);
+      border-radius: 22px;
+      background: rgba(250, 249, 245, 0.985);
+      box-shadow: 0 22px 58px rgba(20, 25, 30, 0.16);
+      backdrop-filter: saturate(170%) blur(24px);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-8px);
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .mobile-menu[hidden] {
+      display: none;
+    }
+
+    .mobile-menu a {
+      min-height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px;
+      border-radius: 14px;
+      color: var(--muted);
+      font-weight: 820;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.74);
+    }
+
+    .mobile-menu .mobile-menu-cta {
+      justify-content: center;
+      margin-top: 4px;
+      background: var(--petrol);
+      color: var(--white);
+      box-shadow: 0 14px 28px rgba(11, 63, 73, 0.18);
+    }
+
+    .topbar.menu-open .mobile-menu {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
     }
 
     .button.secondary {
@@ -1114,8 +1211,28 @@
     }
 
     @media (max-width: 940px) {
-      .navlinks {
+      html {
+        scroll-padding-top: 82px;
+      }
+
+      .nav {
+        gap: 14px;
+      }
+
+      .navlinks,
+      .nav > .nav-cta {
         display: none;
+      }
+
+      .mobile-nav-actions {
+        display: inline-flex;
+        margin-left: auto;
+      }
+
+      .mobile-cta {
+        display: inline-flex;
+        min-height: 44px;
+        padding: 0 18px;
       }
 
       .hero-inner,
@@ -1166,15 +1283,27 @@
 
       .nav {
         min-height: 64px;
+        gap: 10px;
       }
 
-      .nav-cta {
-        display: none;
+      .mobile-menu {
+        top: calc(100% + 8px);
+        border-radius: 20px;
+      }
+
+      .mobile-cta {
+        min-height: 42px;
+        padding: 0 15px;
+      }
+
+      .mobile-menu-toggle {
+        width: 42px;
+        min-height: 42px;
       }
 
       .brand-logo svg {
-        width: 38px;
-        height: 38px;
+        width: 40px;
+        height: 40px;
       }
 
       .brand-logo strong {
@@ -1186,16 +1315,22 @@
       }
 
       .hero {
-        padding: 46px 0 28px;
+        padding: 34px 0 28px;
       }
 
       h1 {
-        font-size: 2.42rem;
+        font-size: clamp(2.06rem, 11vw, 2.42rem);
         line-height: 1.03;
+        margin-bottom: 18px;
       }
 
       .lead {
         font-size: 1rem;
+        margin-bottom: 24px;
+      }
+
+      .hero-note {
+        margin-top: 22px;
       }
 
       .button {
@@ -1235,10 +1370,67 @@
         display: grid;
       }
 
+      .report-status {
+        width: fit-content;
+      }
+
       .footer-row {
         flex-direction: column;
       }
 
+    }
+
+    @media (max-width: 360px) {
+      .nav,
+      .hero-inner,
+      .container,
+      .cta-row,
+      .footer-row,
+      .trust-strip {
+        width: min(100% - 28px, 340px);
+      }
+
+      .brand-logo {
+        gap: 8px;
+      }
+
+      .brand-logo svg {
+        width: 38px;
+        height: 38px;
+      }
+
+      .brand-logo strong {
+        font-size: 0.9rem;
+      }
+
+      .mobile-cta {
+        min-height: 40px;
+        padding: 0 13px;
+        font-size: 0.9rem;
+      }
+
+      .mobile-menu-toggle {
+        width: 40px;
+        min-height: 40px;
+      }
+
+      .eyebrow {
+        font-size: 0.69rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .check-panel,
+      .note-panel,
+      .tier,
+      .call-card,
+      .faq,
+      .bmw-panel,
+      .quick-card {
+        padding: 22px;
+      }
     }
   </style>
 </head>
@@ -1268,6 +1460,28 @@
         <a href="#gyik">GYIK</a>
       </div>
       <a class="nav-cta" href="mailto:info@carvex.hu?subject=Egyeztetest%20kerek">Egyeztetést kérek</a>
+      <div class="mobile-nav-actions">
+        <a class="nav-cta mobile-cta" href="mailto:info@carvex.hu?subject=Egyeztetest%20kerek">Írok</a>
+        <button class="mobile-menu-toggle" type="button" aria-label="Menü megnyitása" aria-controls="mobile-menu" aria-expanded="false">
+          <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 7h14"></path>
+            <path d="M5 12h14"></path>
+            <path d="M5 17h14"></path>
+          </svg>
+          <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12"></path>
+            <path d="M18 6L6 18"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobile-menu" aria-hidden="true" hidden>
+        <a href="#szolgaltatas">Szolgáltatás</a>
+        <a href="#csomagok">Csomagok</a>
+        <a href="#bmw">BMW</a>
+        <a href="#rolam">Rólam</a>
+        <a href="#gyik">GYIK</a>
+        <a class="mobile-menu-cta" href="mailto:info@carvex.hu?subject=Egyeztetest%20kerek">Egyeztetést kérek</a>
+      </div>
     </nav>
   </header>
 
@@ -1605,6 +1819,9 @@
   </footer>
   <script>
     const header = document.querySelector('.topbar');
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileMenu = document.querySelector('#mobile-menu');
+    const desktopNavMedia = window.matchMedia('(min-width: 941px)');
     const revealTargets = document.querySelectorAll(
       'section:not(.hero) .section-head, .call-card, .check-panel, .note-panel, .tier, .step, .report-layout > *, .bmw-layout > *, .expert-layout > *, .faq, .cta-band .cta-row, .final .container'
     );
@@ -1617,6 +1834,49 @@
 
     setHeaderState();
     window.addEventListener('scroll', setHeaderState, { passive: true });
+
+    const setMenuOpen = (isOpen) => {
+      mobileMenu.hidden = !isOpen;
+      mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+      header.classList.toggle('menu-open', isOpen);
+      mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
+      mobileMenuToggle.setAttribute('aria-label', isOpen ? 'Menü bezárása' : 'Menü megnyitása');
+    };
+
+    mobileMenuToggle.addEventListener('click', () => {
+      setMenuOpen(!header.classList.contains('menu-open'));
+    });
+
+    mobileMenu.addEventListener('click', (event) => {
+      if (event.target.closest('a')) {
+        setMenuOpen(false);
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+      }
+    });
+
+    document.addEventListener('pointerdown', (event) => {
+      if (header.classList.contains('menu-open') && !header.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    });
+
+    const handleDesktopNav = (event) => {
+      if (event.matches) {
+        setMenuOpen(false);
+      }
+    };
+
+    if (desktopNavMedia.addEventListener) {
+      desktopNavMedia.addEventListener('change', handleDesktopNav);
+    } else {
+      desktopNavMedia.addListener(handleDesktopNav);
+    }
+    handleDesktopNav(desktopNavMedia);
 
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
