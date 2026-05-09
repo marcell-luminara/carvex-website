@@ -190,6 +190,10 @@
       display: none;
     }
 
+    .mobile-cta-short {
+      display: none;
+    }
+
     .mobile-menu-toggle {
       width: 48px;
       padding: 0;
@@ -904,7 +908,23 @@
     .footer-row {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       gap: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
     }
 
     body::before,
@@ -1376,6 +1396,11 @@
 
       .footer-row {
         flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-links {
+        justify-content: flex-start;
       }
 
     }
@@ -1407,6 +1432,14 @@
         min-height: 40px;
         padding: 0 13px;
         font-size: 0.9rem;
+      }
+
+      .mobile-cta-full {
+        display: none;
+      }
+
+      .mobile-cta-short {
+        display: inline;
       }
 
       .mobile-menu-toggle {
@@ -1459,9 +1492,9 @@
         <a href="#rolam">Rólam</a>
         <a href="#gyik">GYIK</a>
       </div>
-      <a class="nav-cta" href="mailto:info@carvex.hu?subject=Egyeztetest%20kerek">Egyeztetést kérek</a>
+      <a class="nav-cta" href="mailto:info@carvex.hu?subject=Hasznaltauto%20hirdetes%20atvizsgalashoz">Elküldöm a hirdetést</a>
       <div class="mobile-nav-actions">
-        <a class="nav-cta mobile-cta" href="mailto:info@carvex.hu?subject=Egyeztetest%20kerek">Írok</a>
+        <a class="nav-cta mobile-cta" href="mailto:info@carvex.hu?subject=Hasznaltauto%20hirdetes%20atvizsgalashoz" aria-label="Elküldöm a hirdetést"><span class="mobile-cta-full">Elküldöm a hirdetést</span><span class="mobile-cta-short">Hirdetés</span></a>
         <button class="mobile-menu-toggle" type="button" aria-label="Menü megnyitása" aria-controls="mobile-menu" aria-expanded="false">
           <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M5 7h14"></path>
@@ -1480,7 +1513,7 @@
         <a href="#bmw">BMW</a>
         <a href="#rolam">Rólam</a>
         <a href="#gyik">GYIK</a>
-        <a class="mobile-menu-cta" href="mailto:info@carvex.hu?subject=Egyeztetest%20kerek">Egyeztetést kérek</a>
+        <a class="mobile-menu-cta" href="mailto:info@carvex.hu?subject=Hasznaltauto%20hirdetes%20atvizsgalashoz">Elküldöm a hirdetést</a>
       </div>
     </nav>
   </header>
@@ -1491,10 +1524,10 @@
         <div>
           <p class="eyebrow">Független vásárlás előtti szakvélemény</p>
           <h1 id="hero-title">Használtautó átvizsgálás vásárlás előtt, érthető szakvéleménnyel.</h1>
-          <p class="lead">13 év autószerelői tapasztalattal segítek eldönteni, hogy a kiszemelt autó valóban jó vétel-e. Az átvizsgálás után nem csak hibákat kapsz, hanem típusismereten alapuló tanácsot is: mire kell figyelni, milyen költségek várhatók, és mennyi alkualap lehet az autóban.</p>
+          <p class="lead">Mielőtt foglalóznál, küldd el a kiszemelt autó hirdetését. Röviden átbeszéljük, mire érdemes figyelni, és milyen átvizsgálás ad reális biztonságot.</p>
           <div class="hero-actions">
-            <a class="button primary" href="mailto:info@carvex.hu?subject=Egyeztetest%20kerek">Egyeztetést kérek</a>
-            <a class="button secondary" href="mailto:info@carvex.hu?subject=Hasznaltauto%20hirdetes%20atvizsgalashoz">Elküldöm a hirdetést</a>
+            <a class="button primary" href="mailto:info@carvex.hu?subject=Hasznaltauto%20hirdetes%20atvizsgalashoz">Elküldöm a hirdetést</a>
+            <a class="button secondary" href="mailto:info@carvex.hu?subject=Idopontot%20kerek">Időpontot kérek</a>
           </div>
           <p class="hero-note">Független szakvélemény, nem autókereskedés. A cél egy tiszta döntés: megéri, alkualap, vagy inkább tovább kell keresni.</p>
         </div>
@@ -1515,7 +1548,7 @@
         <div class="trust-item"><strong>Független</strong><span>vevőoldali tanácsadás</span></div>
         <div class="trust-item"><strong>BMW</strong><span>kiemelt típusismeret</span></div>
         <div class="trust-item"><strong>Helyszíni</strong><span>átvizsgálás egyeztetéssel</span></div>
-        <div class="trust-item"><strong>Érthető</strong><span>szakvélemény szerelőnyelv nélkül</span></div>
+        <div class="trust-item"><strong>Érthető</strong><span>szakvélemény szakzsargon nélkül</span></div>
       </div>
     </section>
 
@@ -1584,8 +1617,8 @@
           <p>Rövid egyeztetés után gyorsan kiderül, milyen ellenőrzés ad reális biztonságot az adott típusnál.</p>
         </div>
         <div class="cta-actions">
-          <a class="button light" href="mailto:info@carvex.hu?subject=Egyeztetest%20kerek">Egyeztetést kérek</a>
-          <a class="button secondary" href="mailto:info@carvex.hu?subject=Hasznaltauto%20hirdetes%20atvizsgalashoz">Elküldöm a hirdetést</a>
+          <a class="button light" href="mailto:info@carvex.hu?subject=Hasznaltauto%20hirdetes%20atvizsgalashoz">Elküldöm a hirdetést</a>
+          <a class="button secondary" href="mailto:info@carvex.hu?subject=Idopontot%20kerek">Időpontot kérek</a>
         </div>
       </div>
     </aside>
@@ -1607,7 +1640,7 @@
               <li><span class="tick">✓</span><span>Diagnosztikai alapjelek áttekintése, ha elérhető</span></li>
               <li><span class="tick">✓</span><span>Rövid telefonos szakmai összefoglaló</span></li>
             </ul>
-            <a class="button secondary" href="mailto:info@carvex.hu?subject=Alap%20atvizsgalas">Egyeztetést kérek</a>
+            <a class="button secondary" href="mailto:info@carvex.hu?subject=Alap%20atvizsgalas">Időpontot kérek</a>
           </article>
 
           <article class="tier featured">
@@ -1741,12 +1774,12 @@
         </article>
         <div class="content">
           <p class="eyebrow">Személyes szakértő</p>
-          <h2 id="about-title">13 év autószerelői tapasztalat egy jobb autóvásárlási döntésért.</h2>
+          <h2 id="about-title">13 év autószerelői tapasztalat, hogy jobb döntést hozz vásárlás előtt.</h2>
           <p>Az átvizsgálás során szerelői szemmel nézem az autót, de vevői nyelven magyarázom el az eredményt. Nem az a cél, hogy minden apró esztétikai részletet túlbonyolítsunk, hanem hogy kiderüljön: az autó jó vétel-e, mennyi költség várható, és van-e olyan kockázat, ami miatt jobb tovább keresni.</p>
           <ul class="expert-list" style="margin-top: 24px;">
             <li><span class="tick">✓</span><span>Független szakvélemény, nem kereskedői érdek</span></li>
             <li><span class="tick">✓</span><span>Közérthető magyar összefoglaló, világos döntési pontokkal</span></li>
-            <li><span class="tick">✓</span><span>BMW kiemelt típusismeret és gyakorlati szerviztapasztalat</span></li>
+            <li><span class="tick">✓</span><span>Kiemelt BMW-típusismeret és gyakorlati szerviztapasztalat</span></li>
           </ul>
         </div>
       </div>
@@ -1802,10 +1835,10 @@
     <section id="kapcsolat" class="final">
       <div class="container">
         <h2>Ne a vásárlás után derüljön ki, mit rejt az autó.</h2>
-        <p>Küldd el a kiszemelt autó hirdetését, vagy hívj telefonon. Pár perc alatt kiderül, hogyan érdemes ellenőrizni az adott típust.</p>
+        <p>Küldd el a hirdetést, mielőtt foglalóznál.</p>
         <div class="cta-actions">
-          <a class="button primary" href="mailto:info@carvex.hu?subject=Egyeztetest%20kerek">Egyeztetést kérek</a>
-          <a class="button light" href="mailto:info@carvex.hu?subject=Hasznaltauto%20hirdetes%20atvizsgalashoz">Elküldöm a hirdetést</a>
+          <a class="button primary" href="mailto:info@carvex.hu?subject=Hasznaltauto%20hirdetes%20atvizsgalashoz">Elküldöm a hirdetést</a>
+          <a class="button light" href="mailto:info@carvex.hu?subject=Idopontot%20kerek">Időpontot kérek</a>
         </div>
       </div>
     </section>
@@ -1814,7 +1847,11 @@
   <footer>
     <div class="footer-row">
       <span>© 2026 Carvex. Minden jog fenntartva.</span>
-      <span>Árak, kiszállás és pontos tartalom egyeztetés alapján.</span>
+      <nav class="footer-links" aria-label="Jogi információk">
+        <a href="impresszum.html">Impresszum</a>
+        <a href="adatkezelesi-tajekoztato.html">Adatkezelési tájékoztató</a>
+        <a href="aszf.html">ÁSZF</a>
+      </nav>
     </div>
   </footer>
   <script>
