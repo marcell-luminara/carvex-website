@@ -387,7 +387,6 @@
     }
 
     .call-grid,
-    .feature-grid,
     .tiers,
     .faq-grid {
       display: grid;
@@ -396,7 +395,6 @@
     }
 
     .call-card,
-    .feature,
     .tier,
     .faq,
     .report-card,
@@ -409,7 +407,6 @@
     }
 
     .call-card,
-    .feature,
     .faq {
       padding: 26px;
     }
@@ -437,7 +434,6 @@
     }
 
     .call-card h3,
-    .feature h3,
     .faq h3 {
       margin-bottom: 8px;
       font-size: 1.16rem;
@@ -445,7 +441,6 @@
     }
 
     .call-card p,
-    .feature p,
     .faq p {
       margin-bottom: 0;
       color: var(--muted);
@@ -982,7 +977,6 @@
     .quick-card,
     .trust-strip,
     .call-card,
-    .feature,
     .tier,
     .faq,
     .check-panel,
@@ -1011,7 +1005,6 @@
     }
 
     .call-card:hover,
-    .feature:hover,
     .tier:hover,
     .faq:hover {
       transform: translateY(-7px);
@@ -1028,8 +1021,7 @@
       transition: transform 220ms ease, background 220ms ease, border-color 220ms ease;
     }
 
-    .call-card:hover .icon,
-    .feature:hover .icon {
+    .call-card:hover .icon {
       transform: translateY(-2px) scale(1.04);
       background: rgba(11, 63, 73, 0.08);
       border-color: rgba(11, 63, 73, 0.22);
@@ -1141,7 +1133,6 @@
 
       .trust-strip,
       .call-grid,
-      .feature-grid,
       .tiers,
       .faq-grid,
       .process {
@@ -1218,7 +1209,6 @@
 
       .trust-strip,
       .call-grid,
-      .feature-grid,
       .tiers,
       .faq-grid,
       .process,
@@ -1616,7 +1606,7 @@
   <script>
     const header = document.querySelector('.topbar');
     const revealTargets = document.querySelectorAll(
-      'section:not(.hero) .section-head, .call-card, .feature, .check-panel, .note-panel, .tier, .step, .report-layout > *, .bmw-layout > *, .expert-layout > *, .faq, .cta-band .cta-row, .final .container'
+      'section:not(.hero) .section-head, .call-card, .check-panel, .note-panel, .tier, .step, .report-layout > *, .bmw-layout > *, .expert-layout > *, .faq, .cta-band .cta-row, .final .container'
     );
 
     revealTargets.forEach((element) => element.classList.add('reveal'));
