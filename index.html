@@ -291,6 +291,32 @@
       color: var(--white);
     }
 
+    .phone-cta {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .phone-cta::before {
+      content: "";
+      position: absolute;
+      inset: -40% auto -40% -55%;
+      z-index: 0;
+      width: 44%;
+      transform: skewX(-18deg);
+      background: linear-gradient(90deg, transparent, rgba(197, 154, 72, 0.28), transparent);
+      transition: left 520ms ease;
+    }
+
+    .phone-cta.is-revealed::before {
+      left: 112%;
+    }
+
+    .phone-cta.is-revealed {
+      border-color: rgba(197, 154, 72, 0.45);
+      box-shadow: 0 16px 38px rgba(197, 154, 72, 0.18), 0 10px 26px rgba(16, 19, 22, 0.06);
+    }
+
     .hero {
       padding: 86px 0 48px;
       background:
@@ -727,6 +753,7 @@
     }
 
     .lead-form-section {
+      scroll-margin-top: 92px;
       background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.68) 0%, rgba(239, 238, 233, 0.82) 100%);
     }
@@ -1694,9 +1721,9 @@
         <a href="#rolam">Rólam</a>
         <a href="#gyik">GYIK</a>
       </div>
-      <a class="nav-cta" href="mailto:info@carvex.hu?subject=Hasznaltauto%20hirdetes%20atvizsgalashoz">Elküldöm a hirdetést</a>
+      <a class="nav-cta" href="#hirdetes-kuldese">Elküldöm a hirdetést</a>
       <div class="mobile-nav-actions">
-        <a class="nav-cta mobile-cta" href="mailto:info@carvex.hu?subject=Hasznaltauto%20hirdetes%20atvizsgalashoz" aria-label="Elküldöm a hirdetést"><span class="mobile-cta-full">Elküldöm a hirdetést</span><span class="mobile-cta-short">Hirdetés</span></a>
+        <a class="nav-cta mobile-cta" href="#hirdetes-kuldese" aria-label="Elküldöm a hirdetést"><span class="mobile-cta-full">Elküldöm a hirdetést</span><span class="mobile-cta-short">Hirdetés</span></a>
         <button class="mobile-menu-toggle" type="button" aria-label="Menü megnyitása" aria-controls="mobile-menu" aria-expanded="false">
           <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M5 7h14"></path>
@@ -1715,7 +1742,7 @@
         <a href="#bmw">BMW</a>
         <a href="#rolam">Rólam</a>
         <a href="#gyik">GYIK</a>
-        <a class="mobile-menu-cta" href="mailto:info@carvex.hu?subject=Hasznaltauto%20hirdetes%20atvizsgalashoz">Elküldöm a hirdetést</a>
+        <a class="mobile-menu-cta" href="#hirdetes-kuldese">Elküldöm a hirdetést</a>
       </div>
     </nav>
   </header>
@@ -1728,8 +1755,8 @@
           <h1 id="hero-title">Használtautó átvizsgálás vásárlás előtt, érthető szakvéleménnyel.</h1>
           <p class="lead">Mielőtt foglalóznál, küldd el a kiszemelt autó hirdetését. Röviden átbeszéljük, mire érdemes figyelni, és milyen átvizsgálás ad reális biztonságot.</p>
           <div class="hero-actions">
-            <a class="button primary" href="mailto:info@carvex.hu?subject=Hasznaltauto%20hirdetes%20atvizsgalashoz">Elküldöm a hirdetést</a>
-            <a class="button secondary" href="mailto:info@carvex.hu?subject=Idopontot%20kerek">Időpontot kérek</a>
+            <a class="button primary" href="#hirdetes-kuldese">Elküldöm a hirdetést</a>
+            <a class="button secondary phone-cta" href="tel:+36301234567" data-phone-cta data-phone-label="+36 30 123 4567">Telefonon egyeztetek</a>
           </div>
           <p class="hero-note">Független szakvélemény, nem autókereskedés. A cél egy tiszta döntés: megéri, alkualap, vagy inkább tovább kell keresni.</p>
         </div>
@@ -1819,8 +1846,8 @@
           <p>Rövid egyeztetés után gyorsan kiderül, milyen ellenőrzés ad reális biztonságot az adott típusnál.</p>
         </div>
         <div class="cta-actions">
-          <a class="button light" href="mailto:info@carvex.hu?subject=Hasznaltauto%20hirdetes%20atvizsgalashoz">Elküldöm a hirdetést</a>
-          <a class="button secondary" href="mailto:info@carvex.hu?subject=Idopontot%20kerek">Időpontot kérek</a>
+          <a class="button light" href="#hirdetes-kuldese">Elküldöm a hirdetést</a>
+          <a class="button secondary phone-cta" href="tel:+36301234567" data-phone-cta data-phone-label="+36 30 123 4567">Telefonon egyeztetek</a>
         </div>
       </div>
     </aside>
@@ -2049,7 +2076,7 @@
       </div>
     </section>
 
-    <section class="lead-form-section" aria-labelledby="lead-form-title">
+    <section id="hirdetes-kuldese" class="lead-form-section" aria-labelledby="lead-form-title">
       <div class="container">
         <div class="section-head">
           <h2 id="lead-form-title">Küldd el a kiszemelt autó hirdetését</h2>
@@ -2104,8 +2131,8 @@
         <h2>Ne a vásárlás után derüljön ki, mit rejt az autó.</h2>
         <p>Küldd el a hirdetést, mielőtt foglalóznál.</p>
         <div class="cta-actions">
-          <a class="button primary" href="mailto:info@carvex.hu?subject=Hasznaltauto%20hirdetes%20atvizsgalashoz">Elküldöm a hirdetést</a>
-          <a class="button light" href="mailto:info@carvex.hu?subject=Idopontot%20kerek">Időpontot kérek</a>
+          <a class="button primary" href="#hirdetes-kuldese">Elküldöm a hirdetést</a>
+          <a class="button light phone-cta" href="tel:+36301234567" data-phone-cta data-phone-label="+36 30 123 4567">Telefonon egyeztetek</a>
         </div>
       </div>
     </section>
@@ -2149,6 +2176,7 @@
     const mobileMenu = document.querySelector('#mobile-menu');
     const desktopNavMedia = window.matchMedia('(min-width: 941px)');
     const leadForm = document.querySelector('.lead-form');
+    const phoneCtas = document.querySelectorAll('[data-phone-cta]');
     const revealTargets = document.querySelectorAll(
       'section:not(.hero) .section-head, .call-card, .check-panel, .note-panel, .tier, .step, .report-layout > *, .bmw-layout > *, .expert-layout > *, .faq, .lead-form-card, .cta-band .cta-row, .final .container'
     );
@@ -2241,6 +2269,19 @@
         window.location.href = `mailto:info@carvex.hu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       });
     }
+
+    phoneCtas.forEach((cta) => {
+      cta.addEventListener('click', (event) => {
+        if (cta.classList.contains('is-revealed')) {
+          return;
+        }
+
+        event.preventDefault();
+        cta.classList.add('is-revealed');
+        cta.textContent = cta.dataset.phoneLabel || '+36 30 123 4567';
+        cta.setAttribute('aria-label', 'Telefon hívása: +36 30 123 4567');
+      });
+    });
 
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
