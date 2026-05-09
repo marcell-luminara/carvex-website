@@ -838,6 +838,22 @@
       cursor: pointer;
     }
 
+    .form-status {
+      margin: 0;
+      min-height: 1.35em;
+      font-size: 0.95rem;
+      font-weight: 650;
+      color: var(--ink);
+    }
+
+    .form-status.is-success {
+      color: #1d6f42;
+    }
+
+    .form-status.is-error {
+      color: #9a2b2b;
+    }
+
     .process {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -2083,8 +2099,10 @@
           <p>Add meg a legfontosabb adatokat, hogy gyorsan át lehessen látni a típust, a helyszínt és a sürgősséget.</p>
         </div>
         <div class="lead-form-card">
-          <form class="lead-form" action="mailto:info@carvex.hu" method="get" enctype="text/plain">
-            <input type="hidden" name="subject" value="Használtautó hirdetés átvizsgáláshoz">
+          <form class="lead-form" action="https://formsubmit.co/ajax/marcell@luminaracyber.com" method="post">
+            <input type="hidden" name="_subject" value="Használtautó hirdetés átvizsgáláshoz">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
             <div class="lead-form-grid">
               <div class="form-field">
                 <label for="lead-name">Név</label>
@@ -2120,7 +2138,8 @@
               </div>
             </div>
             <p class="form-help">A név, a hirdetés linkje és legalább egy elérhetőség szükséges.</p>
-            <button class="button primary" type="submit">Hirdetés elküldése</button>
+            <button class="button primary" type="submit">Elküldöm a hirdetést</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
           </form>
         </div>
       </div>
@@ -2236,6 +2255,8 @@
     if (leadForm) {
       const phoneInput = leadForm.querySelector('#lead-phone');
       const emailInput = leadForm.querySelector('#lead-email');
+      const statusNode = leadForm.querySelector('.form-status');
+      const submitButton = leadForm.querySelector('button[type="submit"]');
       const contactMessage = 'Adj meg telefonszámot vagy email címet.';
 
       const setContactValidity = () => {
@@ -2244,11 +2265,21 @@
         emailInput.setCustomValidity('');
       };
 
+      const setStatus = (message = '', type = '') => {
+        if (!statusNode) return;
+        statusNode.textContent = message;
+        statusNode.classList.remove('is-success', 'is-error');
+        if (type) {
+          statusNode.classList.add(type);
+        }
+      };
+
       phoneInput.addEventListener('input', setContactValidity);
       emailInput.addEventListener('input', setContactValidity);
 
-      leadForm.addEventListener('submit', (event) => {
+      leadForm.addEventListener('submit', async (event) => {
         setContactValidity();
+        setStatus();
 
         if (!leadForm.checkValidity()) {
           event.preventDefault();
@@ -2258,15 +2289,33 @@
 
         event.preventDefault();
 
-        const formData = new FormData(leadForm);
-        const subject = formData.get('subject') || 'Használtautó hirdetés átvizsgáláshoz';
-        formData.delete('subject');
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = 'Küldés...';
+        }
 
-        const body = Array.from(formData.entries())
-          .map(([label, value]) => `${label}: ${String(value).trim() || '-'}`)
-          .join('\n');
+        try {
+          const response = await fetch(leadForm.action, {
+            method: 'POST',
+            body: new FormData(leadForm),
+            headers: { Accept: 'application/json' }
+          });
 
-        window.location.href = `mailto:info@carvex.hu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          if (!response.ok) {
+            throw new Error('submit_failed');
+          }
+
+          leadForm.reset();
+          setStatus('Köszönöm, megkaptam a hirdetést. Hamarosan felveszem veled a kapcsolatot.', 'is-success');
+        } catch (error) {
+          setStatus('Nem sikerült elküldeni az űrlapot. Kérlek próbáld újra, vagy írj az info@carvex.hu címre.', 'is-error');
+        } finally {
+          setContactValidity();
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Hirdetés elküldése';
+          }
+        }
       });
     }
 
