@@ -385,6 +385,7 @@
       line-height: 0.99;
       letter-spacing: 0;
       overflow-wrap: break-word;
+      hyphens: auto;
     }
 
     h1,
@@ -890,6 +891,7 @@
     }
 
     .form-field input,
+    .form-field select,
     .form-field textarea {
       width: 100%;
       min-height: 50px;
@@ -905,12 +907,26 @@
       transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
     }
 
+    .form-field select {
+      appearance: none;
+      padding-right: 44px;
+      background-image:
+        linear-gradient(45deg, transparent 50%, var(--brand-blue) 50%),
+        linear-gradient(135deg, var(--brand-blue) 50%, transparent 50%);
+      background-position:
+        calc(100% - 22px) 21px,
+        calc(100% - 16px) 21px;
+      background-size: 6px 6px, 6px 6px;
+      background-repeat: no-repeat;
+    }
+
     .form-field textarea {
       min-height: 128px;
       resize: vertical;
     }
 
     .form-field input:focus,
+    .form-field select:focus,
     .form-field textarea:focus {
       border-color: rgba(22, 88, 142, 0.58);
       background: var(--white);
@@ -1600,6 +1616,10 @@
         gap: 34px;
       }
 
+      .expert-proof {
+        order: -1;
+      }
+
       .trust-strip,
       .call-grid,
       .tiers,
@@ -1625,6 +1645,10 @@
     }
 
     @media (max-width: 640px) {
+      html {
+        scroll-padding-top: 74px;
+      }
+
       .nav,
       .hero-inner,
       .container,
@@ -1632,7 +1656,7 @@
       .footer-inner,
       .footer-row,
       .trust-strip {
-        width: min(360px, calc(100% - 36px));
+        width: min(430px, calc(100% - 32px));
       }
 
       .nav {
@@ -1665,9 +1689,11 @@
       }
 
       h1 {
-        font-size: clamp(2.06rem, 11vw, 2.42rem);
-        line-height: 1.03;
+        font-size: clamp(1.92rem, 7.3vw, 2.08rem);
+        line-height: 1.05;
         margin-bottom: 18px;
+        overflow-wrap: break-word;
+        hyphens: none;
       }
 
       .lead {
@@ -1686,6 +1712,7 @@
 
       section {
         padding: 64px 0;
+        scroll-margin-top: 24px;
       }
 
       .trust-strip,
@@ -1750,6 +1777,25 @@
         border-radius: 16px;
       }
 
+    }
+
+    @media (max-width: 430px) {
+      .brand-logo img {
+        width: 136px;
+      }
+
+      .mobile-cta {
+        padding: 0 14px;
+        font-size: 0.88rem;
+      }
+
+      .mobile-cta-full {
+        display: none;
+      }
+
+      .mobile-cta-short {
+        display: inline;
+      }
     }
 
     @media (max-width: 360px) {
@@ -1881,7 +1927,7 @@
 
         <div class="hero-visual" aria-label="Carvex szakértői átvizsgálás">
           <figure class="photo-card">
-            <img src="carvex-inspection-expert.png" alt="Carvex szakértő használtautó motorterét vizsgálja">
+            <img src="expert-photo-notext.png" alt="Carvex szakértő használtautó motorterét vizsgálja">
           </figure>
           <aside class="quick-card">
             <h2>Első lépés: hívás vagy hirdetés</h2>
@@ -1992,7 +2038,7 @@
               <li><span class="tick">✓</span><span>Próbaút, ha a körülmények engedik</span></li>
               <li><span class="tick">✓</span><span>Alapvető vásárlási javaslat: megéri / alkualap / kerülendő</span></li>
             </ul>
-            <a class="button secondary" href="mailto:info@carvex.hu?subject=Alap%20atvizsgalast%20kerek">Alap átvizsgálást kérek</a>
+            <a class="button secondary" href="#hirdetes-kuldese" data-package-cta="Alapcsomag">Alapcsomagot kérek</a>
           </article>
 
           <article class="tier featured">
@@ -2010,7 +2056,7 @@
               <li><span class="tick">✓</span><span>Részletesebb vásárlási és alkupozíciós javaslat</span></li>
               <li><span class="tick">✓</span><span>Írásos, érthető szakvélemény a vizsgálat után</span></li>
             </ul>
-            <a class="button primary" href="mailto:info@carvex.hu?subject=Reszletes%20szakvelemenyt%20kerek">Részletes szakvéleményt kérek</a>
+            <a class="button primary" href="#hirdetes-kuldese" data-package-cta="Részletes szakvélemény">Részletes szakvéleményt kérek</a>
           </article>
 
           <article class="tier">
@@ -2027,7 +2073,7 @@
               <li><span class="tick">✓</span><span>Rövid összehasonlító javaslat: melyik autó éri meg jobban</span></li>
               <li><span class="tick">✓</span><span>Kedvezőbb ár, mintha külön-külön kérnéd az átvizsgálásokat</span></li>
             </ul>
-            <a class="button secondary" href="mailto:info@carvex.hu?subject=Tobb%20autot%20nezetnek%20meg">Több autót nézetnék meg</a>
+            <a class="button secondary" href="#hirdetes-kuldese" data-package-cta="Több autós döntéstámogató csomag">Több autót nézetnék meg</a>
           </article>
         </div>
         <p class="pricing-note">Az árak induló árak. A végleges díj az autó helyszínétől, típusától, értékétől és a vizsgálat mélységétől függ.</p>
@@ -2219,6 +2265,15 @@
                 <input id="lead-contact" name="Telefonszám vagy email" type="text" autocomplete="email" required>
               </div>
               <div class="form-field">
+                <label for="lead-package">Melyik csomag érdekel?</label>
+                <select id="lead-package" name="Melyik csomag érdekel?">
+                  <option value="Még nem tudom, kérek javaslatot" selected>Még nem tudom, kérek javaslatot</option>
+                  <option value="Alapcsomag">Alapcsomag</option>
+                  <option value="Részletes szakvélemény">Részletes szakvélemény</option>
+                  <option value="Több autós döntéstámogató csomag">Több autós döntéstámogató csomag</option>
+                </select>
+              </div>
+              <div class="form-field">
                 <label for="lead-link">Hirdetés linkje</label>
                 <input id="lead-link" name="Hirdetés linkje" type="text" inputmode="url" autocomplete="url" placeholder="https:// vagy www." required>
               </div>
@@ -2297,6 +2352,8 @@
     const mobileMenu = document.querySelector('#mobile-menu');
     const desktopNavMedia = window.matchMedia('(min-width: 941px)');
     const leadForm = document.querySelector('.lead-form');
+    const packageSelect = document.querySelector('#lead-package');
+    const packageCtas = document.querySelectorAll('[data-package-cta]');
     const phoneCtas = document.querySelectorAll('[data-phone-cta]');
     const revealTargets = document.querySelectorAll(
       'section:not(.hero) .section-head, .call-card, .check-panel, .note-panel, .tier, .step, .report-layout > *, .bmw-layout > *, .expert-layout > *, .faq, .lead-form-card, .cta-band .cta-row, .final .container'
@@ -2414,6 +2471,13 @@
         }
       });
     }
+
+    packageCtas.forEach((cta) => {
+      cta.addEventListener('click', () => {
+        if (!packageSelect) return;
+        packageSelect.value = cta.dataset.packageCta || 'Még nem tudom, kérek javaslatot';
+      });
+    });
 
     phoneCtas.forEach((cta) => {
       cta.addEventListener('click', (event) => {
