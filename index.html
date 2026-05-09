@@ -388,6 +388,54 @@
       gap: 12px;
     }
 
+    .service-area-block {
+      max-width: 650px;
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 14px;
+      align-items: center;
+      margin: 24px 0 0;
+      padding: 16px 18px;
+      border: 1px solid rgba(11, 63, 73, 0.12);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.68);
+      box-shadow: 0 12px 30px rgba(20, 25, 30, 0.06);
+    }
+
+    .service-area-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: rgba(197, 154, 72, 0.14);
+      color: var(--petrol);
+    }
+
+    .service-area-icon svg {
+      width: 23px;
+      height: 23px;
+      stroke: currentColor;
+      stroke-width: 1.9;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .service-area-block strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    .service-area-block p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.45;
+    }
+
     .hero-note {
       max-width: 650px;
       margin: 26px 0 0;
@@ -980,9 +1028,9 @@
     }
 
     .expert-card img {
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 4 / 4.8;
       object-fit: cover;
-      object-position: center 24%;
+      object-position: center 34%;
     }
 
     .expert-card-body {
@@ -997,6 +1045,34 @@
     .expert-card-body p {
       margin-bottom: 0;
       color: var(--muted);
+    }
+
+    .expert-proof {
+      display: grid;
+      gap: 22px;
+      align-content: center;
+    }
+
+    .expert-proof .lead {
+      margin-bottom: 0;
+      font-size: clamp(1.08rem, 1.7vw, 1.22rem);
+      line-height: 1.66;
+    }
+
+    .expert-proof-note {
+      padding: 18px 20px;
+      border-left: 4px solid var(--amber);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.68);
+      color: var(--muted);
+      box-shadow: 0 10px 28px rgba(20, 25, 30, 0.06);
+    }
+
+    .expert-proof-note strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--ink);
+      font-size: 0.96rem;
     }
 
     .bmw-panel {
@@ -1774,6 +1850,15 @@
             <a class="button primary" href="#hirdetes-kuldese">Elküldöm a hirdetést</a>
             <a class="button secondary phone-cta" href="tel:+36301234567" data-phone-cta data-phone-label="+36 30 123 4567">Telefonon egyeztetek</a>
           </div>
+          <aside class="service-area-block" aria-label="Szolgáltatási terület">
+            <span class="service-area-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-11a7 7 0 0 0-14 0c0 5.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            </span>
+            <div>
+              <strong>Szolgáltatási terület</strong>
+              <p>Szombathely és Kőszeg, Vas megye, valamint egyeztetés szerint távolabbi helyszínek.</p>
+            </div>
+          </aside>
           <p class="hero-note">Független szakvélemény, nem autókereskedés. A cél egy tiszta döntés: megéri, alkualap, vagy inkább tovább kell keresni.</p>
         </div>
 
@@ -2026,21 +2111,25 @@
     <section id="rolam" aria-labelledby="about-title">
       <div class="container expert-layout">
         <article class="expert-card">
-          <img src="carvex-expert-section.png" alt="Carvex szakértő autószervizben">
+          <img src="about-me-photo-notext.png" alt="A Carvex átvizsgálást végző autószerelő műhelyben">
           <div class="expert-card-body">
-            <h3>Nem autókat árulok. Neked segítek jó döntést hozni.</h3>
-            <p>A szerepem az, hogy a vevő oldalán álljak, és érthetően elmondjam, mit jelent az autó állapota pénzben, kockázatban és döntésben.</p>
+            <h3>A helyszíni átvizsgálást személyesen végzem.</h3>
+            <p>Nem autókat árulok. A vevő oldalán állok, és érthetően elmondom, mit jelent az autó állapota pénzben, kockázatban és döntésben.</p>
           </div>
         </article>
-        <div class="content">
-          <p class="eyebrow">Személyes szakértő</p>
-          <h2 id="about-title">13 év autószerelői tapasztalat, hogy jobb döntést hozz vásárlás előtt.</h2>
-          <p>Az átvizsgálás során szerelői szemmel nézem az autót, de vevői nyelven magyarázom el az eredményt. Nem az a cél, hogy minden apró esztétikai részletet túlbonyolítsunk, hanem hogy kiderüljön: az autó jó vétel-e, mennyi költség várható, és van-e olyan kockázat, ami miatt jobb tovább keresni.</p>
+        <div class="content expert-proof">
+          <div>
+            <p class="eyebrow">Személyes szakértő</p>
+            <h2 id="about-title">Ki végzi az átvizsgálást?</h2>
+          </div>
+          <p class="lead">13 év autószerelői tapasztalattal segítek eldönteni, hogy a kiszemelt autó valóban jó vétel-e, vagy csak annak tűnik a hirdetés alapján.</p>
           <ul class="expert-list" style="margin-top: 24px;">
-            <li><span class="tick">✓</span><span>Független szakvélemény, nem kereskedői érdek</span></li>
-            <li><span class="tick">✓</span><span>Közérthető magyar összefoglaló, világos döntési pontokkal</span></li>
-            <li><span class="tick">✓</span><span>Kiemelt BMW-típusismeret és gyakorlati szerviztapasztalat</span></li>
+            <li><span class="tick">✓</span><span>13 év autószerelői tapasztalat</span></li>
+            <li><span class="tick">✓</span><span>Független, vevőoldali szemlélet</span></li>
+            <li><span class="tick">✓</span><span>Kiemelt BMW-típusismeret</span></li>
+            <li><span class="tick">✓</span><span>Érthető, gyakorlati vásárlási javaslat</span></li>
           </ul>
+          <p class="expert-proof-note"><strong>Miért fontos ez?</strong>Egy használt autó vásárlása gyakran több millió forintos döntés. Ilyenkor nem elég egy hibakódlista: olyan szakvélemény kell, ami segít eldönteni, megéri-e továbblépni, alkudni kell, vagy jobb másik autót keresni.</p>
         </div>
       </div>
     </section>
@@ -2109,12 +2198,8 @@
                 <input id="lead-name" name="Név" type="text" autocomplete="name" required>
               </div>
               <div class="form-field">
-                <label for="lead-phone">Telefonszám</label>
-                <input id="lead-phone" name="Telefonszám" type="tel" autocomplete="tel">
-              </div>
-              <div class="form-field">
-                <label for="lead-email">Email</label>
-                <input id="lead-email" name="Email" type="email" autocomplete="email">
+                <label for="lead-contact">Telefonszám vagy email</label>
+                <input id="lead-contact" name="Telefonszám vagy email" type="text" autocomplete="email" required>
               </div>
               <div class="form-field">
                 <label for="lead-link">Hirdetés linkje</label>
@@ -2137,7 +2222,7 @@
                 <textarea id="lead-note" name="Megjegyzés" placeholder="Például eladó elérhetősége, egyeztetett időpont, ismert hiba vagy kérdés."></textarea>
               </div>
             </div>
-            <p class="form-help">A név, a hirdetés linkje és legalább egy elérhetőség szükséges.</p>
+            <p class="form-help">A név, a telefonszám vagy email, valamint a hirdetés linkje szükséges.</p>
             <button class="button primary" type="submit">Elküldöm a hirdetést</button>
             <p class="form-status" role="status" aria-live="polite"></p>
           </form>
@@ -2253,17 +2338,8 @@
     handleDesktopNav(desktopNavMedia);
 
     if (leadForm) {
-      const phoneInput = leadForm.querySelector('#lead-phone');
-      const emailInput = leadForm.querySelector('#lead-email');
       const statusNode = leadForm.querySelector('.form-status');
       const submitButton = leadForm.querySelector('button[type="submit"]');
-      const contactMessage = 'Adj meg telefonszámot vagy email címet.';
-
-      const setContactValidity = () => {
-        const hasContact = phoneInput.value.trim() || emailInput.value.trim();
-        phoneInput.setCustomValidity(hasContact ? '' : contactMessage);
-        emailInput.setCustomValidity('');
-      };
 
       const setStatus = (message = '', type = '') => {
         if (!statusNode) return;
@@ -2274,11 +2350,7 @@
         }
       };
 
-      phoneInput.addEventListener('input', setContactValidity);
-      emailInput.addEventListener('input', setContactValidity);
-
       leadForm.addEventListener('submit', async (event) => {
-        setContactValidity();
         setStatus();
 
         if (!leadForm.checkValidity()) {
@@ -2310,10 +2382,9 @@
         } catch (error) {
           setStatus('Nem sikerült elküldeni az űrlapot. Kérlek próbáld újra, vagy írj az info@carvex.hu címre.', 'is-error');
         } finally {
-          setContactValidity();
           if (submitButton) {
             submitButton.disabled = false;
-            submitButton.textContent = 'Hirdetés elküldése';
+            submitButton.textContent = 'Elküldöm a hirdetést';
           }
         }
       });
