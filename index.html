@@ -34,6 +34,7 @@
       --shadow: 0 28px 70px rgba(20, 25, 30, 0.12);
       --soft-shadow: 0 14px 40px rgba(20, 25, 30, 0.08);
       --glass: rgba(255, 255, 255, 0.72);
+      --page-gutter: clamp(16px, 4.2vw, 40px);
     }
 
     * {
@@ -43,6 +44,7 @@
     html {
       scroll-behavior: smooth;
       scroll-padding-top: 92px;
+      overflow-x: hidden;
     }
 
     body {
@@ -62,10 +64,29 @@
       text-decoration: none;
     }
 
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid rgba(53, 168, 224, 0.72);
+      outline-offset: 3px;
+    }
+
     img {
       display: block;
       width: 100%;
       height: auto;
+    }
+
+    picture {
+      display: block;
+      width: 100%;
+    }
+
+    .brand-logo picture {
+      display: inline-block;
+      width: auto;
     }
 
     .topbar {
@@ -78,7 +99,7 @@
     }
 
     .nav {
-      width: min(1160px, calc(100% - 40px));
+      width: min(1160px, calc(100% - (var(--page-gutter) * 2)));
       min-height: 72px;
       margin: 0 auto;
       display: flex;
@@ -104,7 +125,7 @@
 
     .brand-logo img {
       display: block;
-      width: clamp(154px, 17vw, 212px);
+      width: clamp(132px, 42vw, 212px);
       height: auto;
       max-height: 64px;
       object-fit: contain;
@@ -342,7 +363,7 @@
     .container,
     .cta-row,
     .footer-row {
-      width: min(1160px, calc(100% - 40px));
+      width: min(1160px, calc(100% - (var(--page-gutter) * 2)));
       margin: 0 auto;
     }
 
@@ -425,6 +446,24 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+    }
+
+    .hero-identity {
+      max-width: 650px;
+      margin: -10px 0 24px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--brand-blue);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.74);
+      color: var(--ink);
+      font-size: 1rem;
+      line-height: 1.45;
+      box-shadow: 0 12px 30px rgba(20, 25, 30, 0.06);
+    }
+
+    .hero-identity strong {
+      font-family: var(--font-body);
+      font-weight: 850;
     }
 
     .service-area-block {
@@ -522,7 +561,7 @@
     }
 
     .trust-strip {
-      width: min(1160px, calc(100% - 40px));
+      width: min(1160px, calc(100% - (var(--page-gutter) * 2)));
       margin: 52px auto 0;
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -1005,6 +1044,10 @@
 
     .form-status.is-error {
       color: #9a2b2b;
+    }
+
+    .mobile-sticky-cta {
+      display: none;
     }
 
     .process {
@@ -1578,6 +1621,7 @@
     .hero .eyebrow,
     .hero h1,
     .hero .lead,
+    .hero-identity,
     .hero-actions,
     .hero-note,
     .hero-visual,
@@ -1587,10 +1631,11 @@
 
     .hero h1 { animation-delay: 80ms; }
     .hero .lead { animation-delay: 150ms; }
-    .hero-actions { animation-delay: 220ms; }
-    .hero-note { animation-delay: 290ms; }
+    .hero-identity { animation-delay: 205ms; }
+    .hero-actions { animation-delay: 260ms; }
+    .hero-note { animation-delay: 330ms; }
     .hero-visual { animation-delay: 180ms; }
-    .trust-strip { animation-delay: 360ms; }
+    .trust-strip { animation-delay: 400ms; }
 
     @keyframes riseIn {
       from {
@@ -1619,9 +1664,13 @@
       }
     }
 
-    @media (max-width: 940px) {
+    @media (max-width: 980px) {
       html {
         scroll-padding-top: 82px;
+      }
+
+      body {
+        padding-bottom: calc(82px + env(safe-area-inset-bottom));
       }
 
       .nav {
@@ -1665,7 +1714,6 @@
       .call-grid,
       .tiers,
       .faq-grid,
-      .lead-form-grid,
       .process {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -1683,9 +1731,51 @@
         align-items: flex-start;
         flex-direction: column;
       }
+
+      .mobile-sticky-cta {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 60;
+        display: grid;
+        grid-template-columns: 0.78fr 1.22fr;
+        gap: 10px;
+        padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+        border-top: 1px solid rgba(16, 19, 22, 0.1);
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: 0 -18px 42px rgba(20, 25, 30, 0.12);
+        backdrop-filter: saturate(170%) blur(20px);
+      }
+
+      .mobile-sticky-cta a {
+        min-height: 48px;
+        border-radius: 14px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 12px;
+        font-family: var(--font-display);
+        font-size: clamp(0.72rem, 3vw, 0.86rem);
+        font-weight: 850;
+        line-height: 1;
+        text-align: center;
+      }
+
+      .mobile-sticky-call {
+        border: 1px solid rgba(22, 88, 142, 0.3);
+        background: var(--white);
+        color: var(--ink);
+      }
+
+      .mobile-sticky-ad {
+        background: linear-gradient(135deg, var(--brand-blue), #0d3c65);
+        color: var(--white);
+        box-shadow: 0 12px 24px rgba(22, 88, 142, 0.22);
+      }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 680px) {
       html {
         scroll-padding-top: 74px;
       }
@@ -1696,14 +1786,17 @@
         overflow-x: hidden;
       }
 
-      .nav,
       .hero-inner,
       .container,
       .cta-row,
-      .footer-inner,
       .footer-row,
       .trust-strip {
-        width: min(288px, calc(100vw - 56px));
+        width: min(100% - 32px, 430px);
+      }
+
+      .nav,
+      .footer-inner {
+        width: min(100% - 28px, 430px);
       }
 
       .nav {
@@ -1721,17 +1814,17 @@
       }
 
       .mobile-menu-toggle {
-        width: 42px;
-        min-height: 42px;
+        width: 44px;
+        min-height: 44px;
       }
 
       .brand-logo img {
-        width: clamp(126px, 36vw, 150px);
-        max-height: 54px;
+        width: clamp(132px, 42vw, 156px);
+        max-height: 56px;
       }
 
       .hero {
-        padding: 34px 0 28px;
+        padding: 38px 0 34px;
       }
 
       .eyebrow {
@@ -1749,19 +1842,28 @@
 
       h1 {
         max-width: 100%;
-        font-size: clamp(1.52rem, 6.25vw, 1.72rem);
-        line-height: 1.1;
+        font-size: clamp(1.9rem, 7.6vw, 2.3rem);
+        line-height: 1.05;
         margin-bottom: 14px;
         text-wrap: auto;
-        overflow-wrap: normal;
+        overflow-wrap: break-word;
         word-break: normal;
         hyphens: none;
+      }
+
+      .section-head h2,
+      .content h2,
+      .cta-row h2,
+      .final h2 {
+        font-size: clamp(1.72rem, 7.7vw, 2.28rem);
+        line-height: 1.1;
+        overflow-wrap: break-word;
       }
 
       .hero-subhead {
         max-width: 100%;
         margin: 0 0 16px;
-        font-size: 0.98rem;
+        font-size: clamp(1.02rem, 4.5vw, 1.22rem);
         line-height: 1.32;
         overflow-wrap: break-word;
       }
@@ -1777,9 +1879,18 @@
         overflow-wrap: break-word;
       }
 
+      .hero-identity {
+        max-width: 100%;
+        margin: 0 0 22px;
+        padding: 13px 14px;
+        overflow-wrap: break-word;
+      }
+
       .button {
         width: 100%;
         white-space: normal;
+        min-height: 52px;
+        overflow-wrap: break-word;
       }
 
       section {
@@ -1799,7 +1910,7 @@
       }
 
       .lead-form-card {
-        padding: 20px;
+        padding: 22px;
       }
 
       .service-area-block,
@@ -1819,6 +1930,10 @@
       .quick-card h2,
       .tier h3,
       .note-panel h3,
+      .call-card h3,
+      .step h3,
+      .finding h3,
+      .expert-card-body h3,
       .form-priority-item strong {
         overflow-wrap: break-word;
       }
@@ -1835,6 +1950,27 @@
       .lead-form .button {
         width: 100%;
         min-width: 0;
+      }
+
+      .tier.featured {
+        transform: none;
+      }
+
+      .badge {
+        position: static;
+        width: fit-content;
+        max-width: 100%;
+        margin-bottom: 14px;
+        white-space: normal;
+      }
+
+      .tier h3,
+      .tier-summary {
+        min-height: 0;
+      }
+
+      .price {
+        font-size: clamp(1.85rem, 9vw, 2.4rem);
       }
 
       .trust-item {
@@ -1884,7 +2020,7 @@
 
     @media (max-width: 430px) {
       .brand-logo img {
-        width: clamp(118px, 35vw, 136px);
+        width: clamp(126px, 40vw, 142px);
       }
 
       .mobile-cta-full {
@@ -1897,22 +2033,12 @@
     }
 
     @media (max-width: 360px) {
-      .nav,
-      .hero-inner,
-      .container,
-      .cta-row,
-      .footer-inner,
-      .footer-row,
-      .trust-strip {
-        width: min(280px, calc(100vw - 52px));
-      }
-
       .brand-logo {
         max-width: 132px;
       }
 
       .brand-logo img {
-        width: 132px;
+        width: 126px;
         max-height: 48px;
       }
 
@@ -1938,7 +2064,7 @@
       }
 
       h1 {
-        font-size: 1.46rem;
+        font-size: clamp(1.72rem, 8vw, 2rem);
       }
 
       .check-panel,
@@ -1968,7 +2094,10 @@
     <nav class="nav" aria-label="Fő navigáció">
       <a class="brand" href="#top" aria-label="Carvex kezdőlap">
         <span class="brand-logo">
-          <img src="carvex-logo-transparent.png" alt="Carvex">
+          <picture>
+            <source type="image/webp" srcset="carvex-logo-transparent-360.webp 360w, carvex-logo-transparent-720.webp 720w" sizes="(max-width: 680px) 42vw, 212px">
+            <img src="carvex-logo-transparent.png" alt="Carvex" width="1155" height="365">
+          </picture>
         </span>
       </a>
       <div class="navlinks">
@@ -2008,6 +2137,7 @@
           <h1 id="hero-title">Ne a vásárlás után derüljön ki, mit rejt az autó.</h1>
           <p class="hero-subhead">Független helyszíni átvizsgálás, érthető döntési javaslattal.</p>
           <p class="lead">Mielőtt foglalóznál, küldd el a kiszemelt autó hirdetését. Röviden átbeszéljük, mire érdemes figyelni, és milyen átvizsgálás ad reális biztonságot.</p>
+          <p class="hero-identity">Az átvizsgálást személyesen végzem: <strong>Petőházi Bence</strong>, 13 év autószerelői tapasztalattal.</p>
           <div class="hero-actions">
             <a class="button primary" href="#hirdetes-kuldese">Elküldöm a hirdetést</a>
             <a class="button secondary phone-cta" href="tel:+36301234567" data-phone-cta data-phone-label="+36 30 123 4567">Telefonon egyeztetek</a>
@@ -2026,7 +2156,10 @@
 
         <div class="hero-visual" aria-label="Carvex szakértői átvizsgálás">
           <figure class="photo-card">
-            <img src="expert-photo-notext.png" alt="Carvex szakértő használtautó motorterét vizsgálja">
+            <picture>
+              <source type="image/webp" srcset="expert-photo-notext-720.webp 720w, expert-photo-notext-1200.webp 1200w" sizes="(max-width: 980px) calc(100vw - 32px), 390px">
+              <img src="expert-photo-notext.png" alt="Carvex szakértő használtautó motorterét vizsgálja" width="1448" height="1086" fetchpriority="high">
+            </picture>
           </figure>
           <aside class="quick-card">
             <h2>Első lépés: hívás vagy hirdetés</h2>
@@ -2265,7 +2398,10 @@
           </ul>
         </div>
         <figure class="bmw-photo">
-          <img src="carvex-bmw-inspection.png" alt="BMW átvizsgálás diagnosztikai eszközökkel">
+          <picture>
+            <source type="image/webp" srcset="carvex-bmw-inspection-720.webp 720w, carvex-bmw-inspection-1200.webp 1200w" sizes="(max-width: 980px) calc(100vw - 32px), 560px">
+            <img src="carvex-bmw-inspection.png" alt="BMW átvizsgálás diagnosztikai eszközökkel" width="1448" height="1086" loading="lazy">
+          </picture>
         </figure>
       </div>
     </section>
@@ -2273,9 +2409,12 @@
     <section id="rolam" aria-labelledby="about-title">
       <div class="container expert-layout">
         <article class="expert-card">
-          <img src="about-me-photo-notext.png" alt="A Carvex átvizsgálást végző autószerelő műhelyben">
+          <picture>
+            <source type="image/webp" srcset="about-me-photo-notext-640.webp 640w, about-me-photo-notext-1023.webp 1023w" sizes="(max-width: 980px) calc(100vw - 32px), 520px">
+            <img src="about-me-photo-notext.png" alt="A Carvex átvizsgálást végző autószerelő műhelyben" width="1023" height="1537" loading="lazy">
+          </picture>
           <div class="expert-card-body">
-            <h3>A helyszíni átvizsgálást személyesen végzem.</h3>
+            <h3>Petőházi Bence vagyok, a helyszíni átvizsgálást személyesen végzem.</h3>
             <p>Nem autókat árulok. A vevő oldalán állok, és érthetően elmondom, mit jelent az autó állapota pénzben, kockázatban és döntésben.</p>
           </div>
         </article>
@@ -2284,7 +2423,8 @@
             <p class="eyebrow">Személyes szakértő</p>
             <h2 id="about-title">Ki végzi az átvizsgálást?</h2>
           </div>
-          <p class="lead">13 év autószerelői tapasztalattal segítek eldönteni, hogy a kiszemelt autó valóban jó vétel-e, vagy csak annak tűnik a hirdetés alapján.</p>
+          <p class="lead">Petőházi Bence vagyok; 13 év autószerelői tapasztalattal segítek eldönteni, hogy a kiszemelt autó valóban jó vétel-e, vagy csak annak tűnik a hirdetés alapján.</p>
+          <p>Szerelőként sok olyan autót láttam, amely kívülről jó vételnek tűnt, de vásárlás után rögtön komoly költségeket hozott. A Carvex célja, hogy ez még a döntés előtt kiderüljön.</p>
           <ul class="expert-list" style="margin-top: 24px;">
             <li><span class="tick">✓</span><span>13 év autószerelői tapasztalat</span></li>
             <li><span class="tick">✓</span><span>Független, vevőoldali szemlélet</span></li>
@@ -2365,16 +2505,20 @@
                 <input id="lead-name" name="Név" type="text" autocomplete="name" required>
               </div>
               <div class="form-field">
-                <label for="lead-contact">Telefonszám vagy email</label>
-                <input id="lead-contact" name="Telefonszám vagy email" type="text" autocomplete="email" required>
+                <label for="lead-phone">Telefonszám</label>
+                <input id="lead-phone" name="Telefonszám" type="tel" autocomplete="tel" inputmode="tel">
+              </div>
+              <div class="form-field">
+                <label for="lead-email">Email</label>
+                <input id="lead-email" name="Email" type="email" autocomplete="email">
               </div>
               <div class="form-field">
                 <label for="lead-link">Hirdetés linkje</label>
-                <input id="lead-link" name="Hirdetés linkje" type="text" inputmode="url" autocomplete="url" placeholder="https:// vagy www." required>
+                <input id="lead-link" name="Hirdetés linkje" type="url" inputmode="url" autocomplete="url" placeholder="https:// vagy www." required>
               </div>
               <div class="form-field">
                 <label for="lead-location">Hol található az autó?</label>
-                <input id="lead-location" name="Hol található az autó?" type="text" autocomplete="address-level2">
+                <input id="lead-location" name="Hol található az autó?" type="text" autocomplete="address-level2" required>
               </div>
               <div class="form-field">
                 <label for="lead-package">Melyik csomag érdekel?</label>
@@ -2398,7 +2542,7 @@
                 <textarea id="lead-note" name="Megjegyzés" placeholder="Például eladó elérhetősége, egyeztetett időpont, ismert hiba vagy kérdés."></textarea>
               </div>
             </div>
-            <p class="form-help">A név, a telefonszám vagy email, valamint a hirdetés linkje szükséges.</p>
+            <p class="form-help">A név, legalább egy elérhetőség, a hirdetés linkje és az autó helyszíne szükséges.</p>
             <button class="button primary" type="submit">Elküldöm a hirdetést</button>
             <p class="form-status" role="status" aria-live="polite"></p>
           </form>
@@ -2450,11 +2594,15 @@
       </div>
     </div>
   </footer>
+  <nav class="mobile-sticky-cta" aria-label="Gyors kapcsolat">
+    <a class="mobile-sticky-call" href="tel:+36301234567">Hívás</a>
+    <a class="mobile-sticky-ad" href="#hirdetes-kuldese">Hirdetés küldése</a>
+  </nav>
   <script>
     const header = document.querySelector('.topbar');
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mobileMenu = document.querySelector('#mobile-menu');
-    const desktopNavMedia = window.matchMedia('(min-width: 941px)');
+    const desktopNavMedia = window.matchMedia('(min-width: 981px)');
     const leadForm = document.querySelector('.lead-form');
     const packageSelect = document.querySelector('#lead-package');
     const packageCtas = document.querySelectorAll('[data-package-cta]');
@@ -2519,6 +2667,8 @@
       const statusNode = leadForm.querySelector('.form-status');
       const submitButton = leadForm.querySelector('button[type="submit"]');
       const leadLinkInput = leadForm.querySelector('#lead-link');
+      const leadPhoneInput = leadForm.querySelector('#lead-phone');
+      const leadEmailInput = leadForm.querySelector('#lead-email');
 
       const setStatus = (message = '', type = '') => {
         if (!statusNode) return;
@@ -2529,8 +2679,20 @@
         }
       };
 
+      [leadPhoneInput, leadEmailInput].forEach((input) => {
+        input?.addEventListener('input', () => {
+          leadPhoneInput?.setCustomValidity('');
+        });
+      });
+
       leadForm.addEventListener('submit', async (event) => {
         setStatus();
+        if (leadPhoneInput && leadEmailInput) {
+          const hasContact = leadPhoneInput.value.trim() || leadEmailInput.value.trim();
+          const message = hasContact ? '' : 'Adj meg telefonszámot vagy email címet.';
+          leadPhoneInput.setCustomValidity(message);
+          leadEmailInput.setCustomValidity('');
+        }
 
         if (leadLinkInput) {
           const trimmedLink = leadLinkInput.value.trim();

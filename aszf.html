@@ -33,12 +33,17 @@
 
     * { box-sizing: border-box; }
 
+    html {
+      overflow-x: hidden;
+    }
+
     body {
       margin: 0;
       font-family: var(--font-body);
       color: var(--ink);
       background: linear-gradient(180deg, #ffffff 0%, var(--paper) 38%, #e8eef5 100%);
       line-height: 1.65;
+      overflow-x: hidden;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
     }
@@ -46,6 +51,10 @@
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    picture {
+      display: block;
     }
 
     .topbar {
@@ -58,7 +67,7 @@
     }
 
     .nav {
-      width: min(1160px, calc(100% - 40px));
+      width: min(1160px, calc(100% - 32px));
       min-height: 72px;
       margin: 0 auto;
       display: flex;
@@ -98,7 +107,7 @@
     }
 
     .legal-shell {
-      width: min(920px, calc(100% - 40px));
+      width: min(920px, calc(100% - 32px));
       margin: 0 auto;
       padding: 36px 0 72px;
     }
@@ -152,6 +161,8 @@
 
     table {
       width: 100%;
+      display: block;
+      overflow-x: auto;
       border-collapse: collapse;
       margin: 18px 0;
       font-size: 0.95rem;
@@ -159,6 +170,13 @@
       overflow: hidden;
       background: rgba(255, 255, 255, 0.65);
       box-shadow: var(--soft-shadow);
+    }
+
+    thead,
+    tbody {
+      display: table;
+      width: max-content;
+      min-width: 100%;
     }
 
     th, td {
@@ -195,7 +213,7 @@
     }
 
     .footer-inner {
-      width: min(1160px, calc(100% - 40px));
+      width: min(1160px, calc(100% - 32px));
       margin: 0 auto;
       display: grid;
       gap: 16px;
@@ -227,9 +245,55 @@
     }
 
     @media (max-width: 720px) {
-      .legal-shell { padding-top: 26px; }
-      .nav { min-height: 64px; }
-      .brand img { width: 138px; }
+      .nav {
+        min-height: 64px;
+        gap: 12px;
+      }
+
+      .brand img {
+        width: clamp(126px, 40vw, 150px);
+      }
+
+      .top-back {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        padding: 7px 10px;
+        font-size: 0.78rem;
+        line-height: 1.2;
+        text-align: center;
+      }
+
+      .legal-shell {
+        width: min(100% - 28px, 680px);
+        padding-top: 26px;
+      }
+
+      .legal-card {
+        padding: 22px 18px;
+        border-radius: 16px;
+      }
+
+      h1 {
+        font-size: clamp(1.74rem, 9vw, 2.35rem);
+        line-height: 1.1;
+      }
+
+      h2 {
+        font-size: 1.16rem;
+        line-height: 1.3;
+      }
+
+      p,
+      li {
+        font-size: 0.98rem;
+      }
+
+      th,
+      td {
+        min-width: 150px;
+        padding: 11px 10px;
+      }
     }
   </style>
 </head>
@@ -237,7 +301,10 @@
   <header class="topbar">
     <div class="nav">
       <a class="brand" href="./" aria-label="Carvex főoldal">
-        <img src="carvex-logo-transparent.png" alt="Carvex">
+        <picture>
+          <source type="image/webp" srcset="carvex-logo-transparent-360.webp 360w, carvex-logo-transparent-720.webp 720w" sizes="(max-width: 720px) 40vw, 205px">
+          <img src="carvex-logo-transparent.png" alt="Carvex" width="1155" height="365">
+        </picture>
       </a>
       <a class="top-back" href="./">← Vissza a főoldalra</a>
     </div>
