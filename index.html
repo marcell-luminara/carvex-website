@@ -381,13 +381,15 @@
     }
 
     h1 {
-      max-width: 820px;
+      max-width: 720px;
       margin-bottom: 24px;
-      font-size: clamp(2.6rem, 4.65vw, 4.35rem);
-      line-height: 0.99;
+      font-size: clamp(2.45rem, 3.72vw, 3.55rem);
+      line-height: 1.08;
       letter-spacing: 0;
-      overflow-wrap: break-word;
-      hyphens: auto;
+      text-wrap: pretty;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: none;
     }
 
     h1,
@@ -405,6 +407,17 @@
       color: var(--muted);
       font-size: clamp(1.1rem, 2vw, 1.26rem);
       line-height: 1.66;
+    }
+
+    .hero-subhead {
+      max-width: 670px;
+      margin: -8px 0 18px;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.05vw, 1.72rem);
+      font-weight: 820;
+      line-height: 1.18;
+      text-wrap: pretty;
     }
 
     .hero-actions,
@@ -863,6 +876,32 @@
       background: rgba(255, 255, 255, 0.78);
       box-shadow: var(--soft-shadow);
       backdrop-filter: blur(18px);
+    }
+
+    .form-priority {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .form-priority-item {
+      padding: 14px 15px;
+      border: 1px solid rgba(22, 88, 142, 0.1);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.74);
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .form-priority-item strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      line-height: 1.2;
     }
 
     .lead-form {
@@ -1651,6 +1690,12 @@
         scroll-padding-top: 74px;
       }
 
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
       .nav,
       .hero-inner,
       .container,
@@ -1658,7 +1703,7 @@
       .footer-inner,
       .footer-row,
       .trust-strip {
-        width: min(430px, calc(100% - 32px));
+        width: min(288px, calc(100vw - 56px));
       }
 
       .nav {
@@ -1689,21 +1734,47 @@
         padding: 34px 0 28px;
       }
 
+      .eyebrow {
+        flex-wrap: wrap;
+        max-width: 100%;
+        gap: 8px;
+        font-size: 0.66rem;
+        line-height: 1.35;
+      }
+
+      .eyebrow::before {
+        width: 24px;
+        flex: 0 0 24px;
+      }
+
       h1 {
-        font-size: clamp(1.92rem, 7.3vw, 2.08rem);
-        line-height: 1.05;
-        margin-bottom: 18px;
-        overflow-wrap: break-word;
+        max-width: 100%;
+        font-size: clamp(1.52rem, 6.25vw, 1.72rem);
+        line-height: 1.1;
+        margin-bottom: 14px;
+        text-wrap: auto;
+        overflow-wrap: normal;
+        word-break: normal;
         hyphens: none;
+      }
+
+      .hero-subhead {
+        max-width: 100%;
+        margin: 0 0 16px;
+        font-size: 0.98rem;
+        line-height: 1.32;
+        overflow-wrap: break-word;
       }
 
       .lead {
         font-size: 1rem;
         margin-bottom: 24px;
+        overflow-wrap: break-word;
       }
 
       .hero-note {
         margin-top: 22px;
+        overflow-wrap: break-word;
       }
 
       .button {
@@ -1722,12 +1793,43 @@
       .faq-grid,
       .lead-form-grid,
       .process,
+      .form-priority,
       .metric-row {
         grid-template-columns: 1fr;
       }
 
       .lead-form-card {
-        padding: 22px;
+        padding: 20px;
+      }
+
+      .service-area-block,
+      .quick-card,
+      .check-panel,
+      .note-panel,
+      .tier,
+      .lead-form-card {
+        max-width: 100%;
+      }
+
+      .service-area-block {
+        grid-template-columns: 42px minmax(0, 1fr);
+        padding: 14px;
+      }
+
+      .quick-card h2,
+      .tier h3,
+      .note-panel h3,
+      .form-priority-item strong {
+        overflow-wrap: break-word;
+      }
+
+      .quick-card,
+      .check-panel,
+      .note-panel,
+      .tier,
+      .lead-form-card,
+      .form-priority-item {
+        min-width: 0;
       }
 
       .lead-form .button {
@@ -1802,7 +1904,7 @@
       .footer-inner,
       .footer-row,
       .trust-strip {
-        width: min(100% - 28px, 340px);
+        width: min(280px, calc(100vw - 52px));
       }
 
       .brand-logo {
@@ -1832,11 +1934,11 @@
       }
 
       .eyebrow {
-        font-size: 0.69rem;
+        font-size: 0.62rem;
       }
 
       h1 {
-        font-size: 2rem;
+        font-size: 1.46rem;
       }
 
       .check-panel,
@@ -1870,6 +1972,7 @@
         </span>
       </a>
       <div class="navlinks">
+        <a href="#szolgaltatas">Szolgáltatás</a>
         <a href="#csomagok">Csomagok</a>
         <a href="#rolam">Rólam</a>
       </div>
@@ -1889,6 +1992,7 @@
         </button>
       </div>
       <div class="mobile-menu" id="mobile-menu" aria-hidden="true" hidden>
+        <a href="#szolgaltatas">Szolgáltatás</a>
         <a href="#csomagok">Csomagok</a>
         <a href="#rolam">Rólam</a>
         <a class="mobile-menu-cta" href="#hirdetes-kuldese">Elküldöm a hirdetést</a>
@@ -1901,7 +2005,8 @@
       <div class="hero-inner">
         <div>
           <p class="eyebrow">Független vásárlás előtti szakvélemény</p>
-          <h1 id="hero-title">Használtautó átvizsgálás vásárlás előtt, érthető szakvéleménnyel.</h1>
+          <h1 id="hero-title">Ne a vásárlás után derüljön ki, mit rejt az autó.</h1>
+          <p class="hero-subhead">Független helyszíni átvizsgálás, érthető döntési javaslattal.</p>
           <p class="lead">Mielőtt foglalóznál, küldd el a kiszemelt autó hirdetését. Röviden átbeszéljük, mire érdemes figyelni, és milyen átvizsgálás ad reális biztonságot.</p>
           <div class="hero-actions">
             <a class="button primary" href="#hirdetes-kuldese">Elküldöm a hirdetést</a>
@@ -1965,7 +2070,7 @@
       </div>
     </section>
 
-    <section id="szolgaltatas" aria-labelledby="service-title" hidden>
+    <section id="szolgaltatas" aria-labelledby="service-title">
       <div class="container">
         <div class="section-head">
           <h2 id="service-title">Mit tartalmaz az átvizsgálás?</h2>
@@ -2021,7 +2126,7 @@
             <div class="tier-head">
               <h3>Alapcsomag</h3>
               <p class="price">34 990 Ft-tól</p>
-              <p class="tier-summary">Gyakorlati helyszíni átvizsgálás vásárlás előtt.</p>
+              <p class="tier-summary">Gyakorlati helyszíni átvizsgálás, ha egy konkrét autóról gyorsan szeretnél tisztább képet kapni.</p>
             </div>
             <ul>
               <li><span class="tick">✓</span><span>Külső és belső állapot átnézése</span></li>
@@ -2040,7 +2145,7 @@
             <div class="tier-head">
               <h3>Részletes szakvélemény</h3>
               <p class="price">44 990 Ft-tól</p>
-              <p class="tier-summary">Részletesebb döntéstámogatás típusspecifikus hibákkal és fenntartási rizikókkal.</p>
+              <p class="tier-summary">Alaposabb döntéstámogatás típusspecifikus hibákkal, fenntartási kockázatokkal és írásos összefoglalóval.</p>
             </div>
             <ul>
               <li><span class="tick">✓</span><span>Az Alapcsomag teljes tartalma</span></li>
@@ -2057,7 +2162,7 @@
             <div class="tier-head">
               <h3>Több autós döntéstámogató csomag</h3>
               <p class="price">89 990 Ft-tól</p>
-              <p class="tier-summary">Ha több kiszemelt autó közül választanál, segítek előszűrni és összehasonlítani a legjobb jelölteket.</p>
+              <p class="tier-summary">Több kiszemelt autó előszűrése és összehasonlítása, hogy ne a leggyengébb jelöltre menjen el az időd.</p>
             </div>
             <ul>
               <li><span class="tick">✓</span><span>Több hirdetés előzetes átnézése</span></li>
@@ -2242,9 +2347,14 @@
       <div class="container">
         <div class="section-head">
           <h2 id="lead-form-title">Küldd el a kiszemelt autó hirdetését</h2>
-          <p>Add meg a legfontosabb adatokat, hogy gyorsan át lehessen látni a típust, a helyszínt és a kívánt időpontot.</p>
+          <p>A link, az elérhetőséged és a helyszín elég az első egyeztetéshez. A többit pontosítjuk telefonon.</p>
         </div>
         <div class="lead-form-card">
+          <div class="form-priority" aria-label="A gyors egyeztetéshez szükséges adatok">
+            <div class="form-priority-item"><strong>1. Hirdetés linkje</strong>Küldd el, mit néztél ki, hogy előre lássam a típust és a hirdetés részleteit.</div>
+            <div class="form-priority-item"><strong>2. Elérhetőség</strong>Telefon vagy email elég, hogy gyorsan vissza tudjak jelezni.</div>
+            <div class="form-priority-item"><strong>3. Helyszín</strong>Az autó helye alapján pontosítható az időpont és a díj.</div>
+          </div>
           <form class="lead-form" action="https://formsubmit.co/ajax/marcell@luminaracyber.com" method="post">
             <input type="hidden" name="_subject" value="Használtautó hirdetés átvizsgáláshoz">
             <input type="hidden" name="_template" value="table">
@@ -2259,6 +2369,14 @@
                 <input id="lead-contact" name="Telefonszám vagy email" type="text" autocomplete="email" required>
               </div>
               <div class="form-field">
+                <label for="lead-link">Hirdetés linkje</label>
+                <input id="lead-link" name="Hirdetés linkje" type="text" inputmode="url" autocomplete="url" placeholder="https:// vagy www." required>
+              </div>
+              <div class="form-field">
+                <label for="lead-location">Hol található az autó?</label>
+                <input id="lead-location" name="Hol található az autó?" type="text" autocomplete="address-level2">
+              </div>
+              <div class="form-field">
                 <label for="lead-package">Melyik csomag érdekel?</label>
                 <select id="lead-package" name="Melyik csomag érdekel?">
                   <option value="Még nem tudom, kérek javaslatot" selected>Még nem tudom, kérek javaslatot</option>
@@ -2268,16 +2386,8 @@
                 </select>
               </div>
               <div class="form-field">
-                <label for="lead-link">Hirdetés linkje</label>
-                <input id="lead-link" name="Hirdetés linkje" type="text" inputmode="url" autocomplete="url" placeholder="https:// vagy www." required>
-              </div>
-              <div class="form-field">
                 <label for="lead-car">Autó típusa / évjárata</label>
                 <input id="lead-car" name="Autó típusa / évjárata" type="text" autocomplete="off">
-              </div>
-              <div class="form-field">
-                <label for="lead-location">Hol található az autó?</label>
-                <input id="lead-location" name="Hol található az autó?" type="text" autocomplete="address-level2">
               </div>
               <div class="form-field">
                 <label for="lead-urgency">Mikorra szeretnéd az átvizsgálást?</label>
