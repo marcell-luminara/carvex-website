@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://carvex.hu/sitemap.xml
