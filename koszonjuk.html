@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,follow" />
+  <title>Köszönjük | Carvex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080A0D'/%3E%3Cpath d='M10 34c11-13 34-13 44 0' fill='none' stroke='%2335A8E0' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M40 34c5 4 10 5 15 2' fill='none' stroke='%23E7222E' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M14 43h36' fill='none' stroke='%23FFFFFF' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --brand-black: #080A0D;
+      --brand-charcoal: #101316;
+      --brand-light-blue: #35A8E0;
+      --brand-blue: #16588E;
+      --brand-red: #E7222E;
+      --brand-white: #FFFFFF;
+      --brand-surface: #F5F7FA;
+      --brand-muted: #6B7280;
+      --font-display: "Orbitron", "Michroma", "Audiowide", "Exo 2", sans-serif;
+      --font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --ink: var(--brand-charcoal);
+      --muted: var(--brand-muted);
+      --paper: var(--brand-surface);
+      --white: var(--brand-white);
+      --line: rgba(16, 19, 22, 0.1);
+      --shadow: 0 28px 70px rgba(20, 25, 30, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { overflow-x: hidden; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: linear-gradient(180deg, #ffffff 0%, var(--paper) 38%, #e8eef5 100%);
+      line-height: 1.65;
+      overflow-x: hidden;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    picture { display: block; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      border-bottom: 1px solid rgba(16, 19, 22, 0.08);
+      background: rgba(255, 255, 255, 0.86);
+      backdrop-filter: saturate(170%) blur(24px);
+    }
+
+    .nav {
+      width: min(1160px, calc(100% - 32px));
+      min-height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      color: var(--ink);
+    }
+
+    .brand img {
+      width: clamp(150px, 18vw, 205px);
+      height: auto;
+      max-height: 62px;
+      object-fit: contain;
+    }
+
+    .top-back,
+    .button {
+      color: var(--muted);
+      font-family: var(--font-display);
+      font-weight: 760;
+      font-size: 0.94rem;
+      padding: 9px 13px;
+      border: 1px solid rgba(22, 88, 142, 0.2);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .top-back:hover,
+    .button:hover {
+      color: var(--ink);
+      border-color: rgba(16, 19, 22, 0.16);
+      background: rgba(255, 255, 255, 0.84);
+    }
+
+    .legal-shell {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 36px 0 72px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--brand-blue);
+      font-weight: 760;
+    }
+
+    .back-link:hover {
+      color: var(--brand-black);
+      text-decoration: underline;
+    }
+
+    .legal-card {
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.82);
+      border-radius: 18px;
+      padding: clamp(24px, 4vw, 48px);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    h1, p { margin-top: 0; }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.05;
+      margin-bottom: 12px;
+      letter-spacing: 0;
+      font-family: var(--font-display);
+    }
+
+    p { font-size: 1rem; }
+
+    .muted { color: var(--muted); }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+    }
+
+    .button.primary {
+      color: var(--white);
+      border-color: var(--brand-red);
+      background: var(--brand-red);
+    }
+
+    .button.primary:hover {
+      color: var(--white);
+      background: #c91b25;
+    }
+
+    footer {
+      padding: 34px 0 88px;
+      background: var(--brand-black);
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+      display: grid;
+      gap: 16px;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.78);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .footer-links a:hover,
+    .footer-links a:focus-visible {
+      color: var(--white);
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        min-height: 64px;
+        gap: 12px;
+      }
+
+      .brand img {
+        width: clamp(126px, 40vw, 150px);
+      }
+
+      .top-back {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        padding: 7px 10px;
+        font-size: 0.78rem;
+        line-height: 1.2;
+        text-align: center;
+      }
+
+      .legal-shell {
+        width: min(100% - 28px, 680px);
+        padding-top: 26px;
+      }
+
+      .legal-card {
+        padding: 22px 18px;
+        border-radius: 16px;
+      }
+
+      h1 {
+        font-size: clamp(1.74rem, 9vw, 2.35rem);
+        line-height: 1.1;
+      }
+
+      p { font-size: 0.98rem; }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="nav">
+      <a class="brand" href="./" aria-label="Carvex főoldal">
+        <picture>
+          <source type="image/webp" srcset="carvex-logo-transparent-360.webp 360w, carvex-logo-transparent-720.webp 720w" sizes="(max-width: 720px) 40vw, 205px">
+          <img src="carvex-logo-transparent.png" alt="Carvex" width="1155" height="365">
+        </picture>
+      </a>
+      <a class="top-back" href="./">← Vissza a főoldalra</a>
+    </div>
+  </header>
+
+  <main class="legal-shell">
+    <a class="back-link" href="./">← Vissza a főoldalra</a>
+    <article class="legal-card">
+      <h1>Köszönjük, megkaptuk a hirdetést.</h1>
+      <p class="muted">Hamarosan felvesszük veled a kapcsolatot a megadott elérhetőségen.</p>
+      <p>Ha sürgős az egyeztetés, telefonon is kereshetsz minket.</p>
+      <div class="actions">
+        <a class="button primary" href="tel:+36302422929">Telefonon egyeztetek</a>
+        <a class="button" href="./">Vissza a főoldalra</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-row">
+        <span>© 2026 Carvex. Minden jog fenntartva.</span>
+        <nav class="footer-links" aria-label="Jogi információk">
+          <a href="./impresszum.html">Impresszum</a>
+          <a href="./adatkezelesi-tajekoztato.html">Adatkezelési tájékoztató</a>
+          <a href="./aszf.html">ÁSZF</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

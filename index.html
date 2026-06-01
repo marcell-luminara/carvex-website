@@ -2463,10 +2463,11 @@
             <div class="form-priority-item"><strong>2. Elérhetőség</strong>Telefon vagy email elég, hogy gyorsan vissza tudjak jelezni.</div>
             <div class="form-priority-item"><strong>3. Helyszín</strong>Az autó helye alapján pontosítható az időpont és a díj.</div>
           </div>
-          <form class="lead-form" action="https://formsubmit.co/ajax/bence@carvex.hu" method="post">
-            <input type="hidden" name="_subject" value="Használtautó hirdetés átvizsgáláshoz">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
+          <form class="lead-form" name="lead" action="/koszonjuk.html" method="post" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="lead">
+            <p class="form-field" hidden>
+              <label>Ne töltsd ki ezt a mezőt: <input name="bot-field" autocomplete="off"></label>
+            </p>
             <div class="lead-form-grid">
               <div class="form-field">
                 <label for="lead-name">Név</label>
@@ -2634,6 +2635,14 @@
       const leadPhoneInput = leadForm.querySelector('#lead-phone');
       const leadEmailInput = leadForm.querySelector('#lead-email');
 
+      const normalizeLeadLink = () => {
+        if (!leadLinkInput) return;
+        const trimmedLink = leadLinkInput.value.trim();
+        leadLinkInput.value = trimmedLink && !/^[a-z][a-z\d+\-.]*:\/\//i.test(trimmedLink)
+          ? `https://${trimmedLink}`
+          : trimmedLink;
+      };
+
       const setStatus = (message = '', type = '') => {
         if (!statusNode) return;
         statusNode.textContent = message;
@@ -2649,6 +2658,8 @@
         });
       });
 
+      leadLinkInput?.addEventListener('blur', normalizeLeadLink);
+
       leadForm.addEventListener('submit', async (event) => {
         setStatus();
         if (leadPhoneInput && leadEmailInput) {
@@ -2658,12 +2669,7 @@
           leadEmailInput.setCustomValidity('');
         }
 
-        if (leadLinkInput) {
-          const trimmedLink = leadLinkInput.value.trim();
-          leadLinkInput.value = trimmedLink && !/^[a-z][a-z\d+\-.]*:\/\//i.test(trimmedLink)
-            ? `https://${trimmedLink}`
-            : trimmedLink;
-        }
+        normalizeLeadLink();
 
         if (!leadForm.checkValidity()) {
           event.preventDefault();
@@ -2679,10 +2685,11 @@
         }
 
         try {
-          const response = await fetch(leadForm.action, {
+          const formData = new FormData(leadForm);
+          const response = await fetch('/', {
             method: 'POST',
-            body: new FormData(leadForm),
-            headers: { Accept: 'application/json' }
+            body: new URLSearchParams(formData).toString(),
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
           });
 
           if (!response.ok) {
