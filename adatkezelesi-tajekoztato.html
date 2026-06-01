@@ -18,6 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="analytics-consent.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080A0D'/%3E%3Cpath d='M10 34c11-13 34-13 44 0' fill='none' stroke='%2335A8E0' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M40 34c5 4 10 5 15 2' fill='none' stroke='%23E7222E' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M14 43h36' fill='none' stroke='%23FFFFFF' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
   <style>
     :root {
@@ -387,11 +388,18 @@
             <td>GDPR 6. cikk (1) f) pont: a weboldal biztonságos működtetéséhez fűződő jogos érdek.</td>
             <td>Általában legfeljebb 30 nap, kivéve biztonsági incidens kivizsgálása esetén.</td>
           </tr>
+          <tr>
+            <td>Weboldal látogatottságának mérése</td>
+            <td>Google Analytics által kezelt analitikai adatok, például oldalmegtekintések, kattintási események, eszköz- és böngészőadatok, hozzávetőleges földrajzi adatok.</td>
+            <td>GDPR 6. cikk (1) a) pont: az érintett hozzájárulása.</td>
+            <td>A Google Analytics beállításai szerinti megőrzési idő, illetve a hozzájárulás visszavonásáig.</td>
+          </tr>
         </tbody>
       </table>
 
       <h2>3. Sütik és külső szolgáltatások</h2>
-      <p>A weboldal jelen formájában nem használ saját marketing- vagy analitikai sütiket. A weboldalon található kapcsolatfelvételi űrlap a Netlify Forms szolgáltatáson keresztül továbbítja a megadott adatokat a Carvex részére. Az e-mail link megnyitása a látogató saját levelezőprogramját használja. A Facebookra és Instagramra mutató külső linkek megnyitásakor az adott szolgáltató saját adatkezelési szabályai irányadók.</p>
+      <p>A weboldal analitikai sütiket csak a látogató hozzájárulása után használ. Hozzájárulás esetén a Carvex Google Analytics szolgáltatást használhat az oldalmegtekintések, telefonos és e-mailes kattintások, csomagválasztási kattintások és űrlapbeküldési események mérésére. A hozzájárulás hiányában a Google Analytics mérőkód nem töltődik be.</p>
+      <p>A weboldalon található kapcsolatfelvételi űrlap a Netlify Forms szolgáltatáson keresztül továbbítja a megadott adatokat a Carvex részére. Az e-mail link megnyitása a látogató saját levelezőprogramját használja. A Facebookra és Instagramra mutató külső linkek megnyitásakor az adott szolgáltató saját adatkezelési szabályai irányadók.</p>
 
       <h2>4. Adatfeldolgozók</h2>
       <p>A Carvex a szolgáltatás működtetéséhez igénybe vehet tárhelyszolgáltatót, domainszolgáltatót, űrlapbeküldést kezelő szolgáltatót, levelezési szolgáltatót, számlázóprogramot, könyvelőt és informatikai szolgáltatót. A weboldal tárhelyét és a kapcsolatfelvételi űrlap technikai feldolgozását a Netlify biztosítja. Az adatfeldolgozók kizárólag az adatkezelő utasításai szerint, a szolgáltatás biztosításához szükséges mértékben kezelhetnek személyes adatokat.</p>
@@ -443,5 +451,6 @@
       </div>
     </div>
   </footer>
+  <script src="analytics-consent.js" defer></script>
 </body>
 </html>

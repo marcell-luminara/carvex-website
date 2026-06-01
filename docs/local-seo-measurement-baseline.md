@@ -7,6 +7,8 @@ Initial baseline target: 2026-06-01.
 ## Canonical assumptions
 
 - Canonical domain: https://carvex.hu/
+- Google Analytics 4 property: Carvex - carvex.hu.
+- Google Analytics 4 measurement ID: G-D2RRVBTMME.
 - Service-area model: Kőszeg, Szombathely, Vas megye.
 - Public contact details: info@carvex.hu and +36 30 242 2929.
 - Thank-you page is intentionally `noindex,follow`.
