@@ -2471,23 +2471,23 @@
             <div class="lead-form-grid">
               <div class="form-field">
                 <label for="lead-name">Név</label>
-                <input id="lead-name" name="Név" type="text" autocomplete="name" required>
+                <input id="lead-name" name="Név" type="text" autocomplete="name" maxlength="80" required>
               </div>
               <div class="form-field">
                 <label for="lead-phone">Telefonszám</label>
-                <input id="lead-phone" name="Telefonszám" type="tel" autocomplete="tel" inputmode="tel">
+                <input id="lead-phone" name="Telefonszám" type="tel" autocomplete="tel" inputmode="tel" maxlength="32">
               </div>
               <div class="form-field">
                 <label for="lead-email">Email</label>
-                <input id="lead-email" name="Email" type="email" autocomplete="email">
+                <input id="lead-email" name="Email" type="email" autocomplete="email" maxlength="120">
               </div>
               <div class="form-field">
                 <label for="lead-link">Hirdetés linkje</label>
-                <input id="lead-link" name="Hirdetés linkje" type="url" inputmode="url" autocomplete="url" placeholder="https:// vagy www." required>
+                <input id="lead-link" name="Hirdetés linkje" type="url" inputmode="url" autocomplete="url" placeholder="https:// vagy www." maxlength="500" pattern="https?://.+" required>
               </div>
               <div class="form-field">
                 <label for="lead-location">Hol található az autó?</label>
-                <input id="lead-location" name="Hol található az autó?" type="text" autocomplete="address-level2" required>
+                <input id="lead-location" name="Hol található az autó?" type="text" autocomplete="address-level2" maxlength="120" required>
               </div>
               <div class="form-field">
                 <label for="lead-package">Melyik csomag érdekel?</label>
@@ -2500,15 +2500,15 @@
               </div>
               <div class="form-field">
                 <label for="lead-car">Autó típusa / évjárata</label>
-                <input id="lead-car" name="Autó típusa / évjárata" type="text" autocomplete="off">
+                <input id="lead-car" name="Autó típusa / évjárata" type="text" autocomplete="off" maxlength="120">
               </div>
               <div class="form-field">
                 <label for="lead-urgency">Mikorra szeretnéd az átvizsgálást?</label>
-                <input id="lead-urgency" name="Mikorra szeretnéd az átvizsgálást?" type="text" autocomplete="off">
+                <input id="lead-urgency" name="Mikorra szeretnéd az átvizsgálást?" type="text" autocomplete="off" maxlength="120">
               </div>
               <div class="form-field full">
                 <label for="lead-note">Megjegyzés</label>
-                <textarea id="lead-note" name="Megjegyzés" placeholder="Például eladó elérhetősége, egyeztetett időpont, ismert hiba vagy kérdés."></textarea>
+                <textarea id="lead-note" name="Megjegyzés" maxlength="1200" placeholder="Például eladó elérhetősége, egyeztetett időpont, ismert hiba vagy kérdés."></textarea>
               </div>
             </div>
             <p class="form-help">A név, legalább egy elérhetőség, a hirdetés linkje és az autó helyszíne szükséges.</p>
@@ -2659,6 +2659,12 @@
       });
 
       leadLinkInput?.addEventListener('blur', normalizeLeadLink);
+      submitButton?.addEventListener('pointerdown', normalizeLeadLink);
+      leadForm.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          normalizeLeadLink();
+        }
+      });
 
       leadForm.addEventListener('submit', async (event) => {
         setStatus();
