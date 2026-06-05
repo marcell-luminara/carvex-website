@@ -9,7 +9,8 @@ Initial baseline target: 2026-06-01.
 - Canonical domain: https://carvex.hu/
 - Google Analytics 4 property: Carvex - carvex.hu.
 - Google Analytics 4 measurement ID: G-D2RRVBTMME.
-- Service-area model: Kőszeg, Szombathely, Vas megye.
+- Service-area model: nationwide Hungary service by appointment, with strongest regional coverage in Nyugat-Dunántúl.
+- Priority regional coverage: Győr-Moson-Sopron vármegye, Vas vármegye, Zala vármegye, plus Kőszeg and Szombathely as local anchors.
 - Public contact details: info@carvex.hu and +36 30 242 2929.
 - Thank-you page is intentionally `noindex,follow`.
 
@@ -25,6 +26,15 @@ Track local rankings manually or in a rank tracker from a Hungary location setti
 | autó átvizsgálás vásárlás előtt Szombathely | Szombathely |  |  |  |
 | használtautó átvizsgálás Vas megye | Vas megye |  |  |  |
 | vásárlás előtti autó átvizsgálás Vas megye | Vas megye |  |  |  |
+| használtautó átvizsgálás Nyugat-Dunántúl | Nyugat-Dunántúl |  |  |  |
+| vásárlás előtti autó átvizsgálás Nyugat-Dunántúl | Nyugat-Dunántúl |  |  |  |
+| használtautó átvizsgálás Győr-Moson-Sopron vármegye | Győr-Moson-Sopron |  |  |  |
+| autó átvizsgálás vásárlás előtt Győr-Moson-Sopron | Győr-Moson-Sopron |  |  |  |
+| használtautó átvizsgálás Zala megye | Zala megye |  |  |  |
+| autó átvizsgálás vásárlás előtt Zala megye | Zala megye |  |  |  |
+| használtautó átvizsgálás országosan | Magyarország |  |  |  |
+| országos autó átvizsgálás vásárlás előtt | Magyarország |  |  |  |
+| jármű átvizsgálás vásárlás előtt | Magyarország |  |  |  |
 | BMW átvizsgálás vásárlás előtt | Regional |  |  |  |
 
 ## Google Business Profile metrics
@@ -58,8 +68,9 @@ Track where feasible without adding privacy-invasive analytics.
 Each monthly report should include:
 
 - Organic clicks and impressions from Google Search Console.
-- Top local queries by clicks and impressions.
+- Top local, regional, and national queries by clicks and impressions.
 - Current ranking snapshot for target keywords.
+- Query groups split by local anchors, Nyugat-Dunántúl, county-level terms, and country-wide terms.
 - GBP actions: website clicks, calls, reviews, and profile views.
 - Lead count from forms, calls, and email where measurable.
 - Notes on content, citation, or GBP changes made during the period.

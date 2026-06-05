@@ -10,7 +10,7 @@ Use this exact public identity wherever a directory, citation, or profile allows
 | Website | https://carvex.hu/ |
 | Email | info@carvex.hu |
 | Phone | +36 30 242 2929 |
-| Service area | Kőszeg, Szombathely, Vas megye |
+| Service area | Magyarország országosan egyeztetéssel; kiemelten Nyugat-Dunántúl, Győr-Moson-Sopron, Vas és Zala vármegye |
 | Primary service | Használtautó átvizsgálás vásárlás előtt |
 
 Do not invent or publish a street address unless the business owner explicitly approves it for public use.
@@ -19,7 +19,8 @@ Do not invent or publish a street address unless the business owner explicitly a
 
 - Configure Carvex as a service-area business.
 - Hide the street address unless it is a customer-facing staffed location.
-- Add service areas: Kőszeg, Szombathely, Vas megye.
+- Add service areas where GBP allows: Magyarország, Nyugat-Dunántúl, Győr-Moson-Sopron vármegye, Vas vármegye, Zala vármegye, Kőszeg, Szombathely.
+- Keep the profile configured as a service-area business; do not imply a staffed storefront or force direction requests as the main conversion.
 - Primary category: use the closest available automotive inspection or repair-related category in GBP.
 - Services: használtautó átvizsgálás, vásárlás előtti autó átvizsgálás, diagnosztika, próbaút, BMW átvizsgálás.
 - Website URL: https://carvex.hu/
@@ -36,6 +37,7 @@ Prioritize profiles that support Hungarian businesses and service-area wording.
 | Instagram | Verify bio link and contact details. |
 | Local Hungarian business directories | Add only where NAP can match the canonical format. |
 | Automotive forums/directories | Use service-area wording and avoid duplicate tracking phone numbers. |
+| National Hungarian service directories | Use country-wide service wording only where the listing supports service-area businesses. |
 
 ## Review acquisition flow
 
@@ -43,4 +45,5 @@ Prioritize profiles that support Hungarian businesses and service-area wording.
 - Use neutral wording: "Ha hasznos volt az átvizsgálás, örülök egy őszinte Google értékelésnek."
 - Do not ask only satisfied customers.
 - Do not offer discounts, gifts, or priority service for reviews.
-- Rotate regional context naturally when relevant: Kőszeg, Szombathely, or Vas megye.
+- Rotate regional context naturally when relevant: Kőszeg, Szombathely, Vas, Győr-Moson-Sopron, Zala, Nyugat-Dunántúl, or országos kiszállás.
+- Keep review prompts neutral and service-specific; do not overstate availability for a location unless that inspection was actually served there.
