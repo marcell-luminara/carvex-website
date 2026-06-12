@@ -5,3 +5,15 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+/favicon.ico
+  Cache-Control: public, max-age=604800
+
+/favicon-48x48.png
+  Cache-Control: public, max-age=604800
+
+/favicon-96x96.png
+  Cache-Control: public, max-age=604800
+
+/favicon-192x192.png
+  Cache-Control: public, max-age=604800
