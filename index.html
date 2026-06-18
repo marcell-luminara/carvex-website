@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Használtautó átvizsgálás országosan és Nyugat-Dunántúlon | Carvex</title>
+  <title>Használtautó átvizsgálás országosan | Carvex</title>
   <meta name="description" content="Független helyszíni használtautó átvizsgálás országosan, kiemelten Nyugat-Dunántúlon: Győr-Moson-Sopron, Vas és Zala vármegyében.">
   <meta name="robots" content="index,follow">
   <meta name="author" content="Carvex">
@@ -11,13 +11,13 @@
   <meta property="og:locale" content="hu_HU">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Carvex">
-  <meta property="og:title" content="Használtautó átvizsgálás országosan és Nyugat-Dunántúlon | Carvex">
+  <meta property="og:title" content="Használtautó átvizsgálás országosan | Carvex">
   <meta property="og:description" content="Független helyszíni használtautó átvizsgálás Magyarországon, erős nyugat-dunántúli lefedettséggel és érthető vásárlási javaslattal.">
   <meta property="og:url" content="https://carvex.hu/">
   <meta property="og:image" content="https://carvex.hu/expert-photo-notext-1200.webp">
   <meta property="og:image:alt" content="Carvex szakértő használtautó motorterét vizsgálja">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Használtautó átvizsgálás országosan és Nyugat-Dunántúlon | Carvex">
+  <meta name="twitter:title" content="Használtautó átvizsgálás országosan | Carvex">
   <meta name="twitter:description" content="Független helyszíni használtautó átvizsgálás országosan, érthető vásárlási javaslattal.">
   <meta name="twitter:image" content="https://carvex.hu/expert-photo-notext-1200.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,6 +28,7 @@
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -522,6 +523,13 @@
     h1,
     h2,
     h3,
+    .card-title,
+    .panel-title,
+    .quick-title,
+    .cta-title,
+    .section-title,
+    .step-title,
+    .expert-card-title,
     p {
       margin-top: 0;
     }
@@ -541,6 +549,13 @@
     h1,
     h2,
     h3,
+    .card-title,
+    .panel-title,
+    .quick-title,
+    .cta-title,
+    .section-title,
+    .step-title,
+    .expert-card-title,
     .trust-item strong,
     .price,
     .badge {
@@ -674,7 +689,7 @@
       backdrop-filter: blur(18px);
     }
 
-    .quick-card h2 {
+    .quick-card .quick-title {
       margin-bottom: 8px;
       font-size: 1.24rem;
       line-height: 1.18;
@@ -745,7 +760,8 @@
     }
 
     .section-head h2,
-    .content h2 {
+    .content h2,
+    .content .section-title {
       margin-bottom: 0;
       font-size: clamp(2.05rem, 4vw, 3.45rem);
       line-height: 1.04;
@@ -821,14 +837,14 @@
       stroke-linejoin: round;
     }
 
-    .call-card h3 {
+    .call-card .card-title {
       margin-bottom: 10px;
       padding-right: 54px;
       font-size: 1.16rem;
       line-height: 1.2;
     }
 
-    .faq h3 {
+    .faq .card-title {
       margin-bottom: 8px;
       font-size: 1.16rem;
       line-height: 1.2;
@@ -910,7 +926,7 @@
       font-weight: 950;
     }
 
-    .note-panel h3 {
+    .note-panel .panel-title {
       margin-bottom: 10px;
       font-size: 1.35rem;
     }
@@ -933,7 +949,7 @@
       gap: 28px;
     }
 
-    .cta-row h2 {
+    .cta-row .cta-title {
       margin-bottom: 6px;
       font-size: clamp(1.6rem, 3vw, 2.35rem);
       line-height: 1.1;
@@ -1207,7 +1223,7 @@
       font-weight: 920;
     }
 
-    .step h3 {
+    .step .step-title {
       margin-bottom: 8px;
       font-size: 1.12rem;
       line-height: 1.2;
@@ -1318,7 +1334,7 @@
       padding: 24px;
     }
 
-    .expert-card-body h3 {
+    .expert-card-body .expert-card-title {
       margin-bottom: 8px;
       font-size: 1.35rem;
     }
@@ -1370,7 +1386,7 @@
       color: rgba(255, 255, 255, 0.74);
     }
 
-    .bmw-panel h2 {
+    .bmw-panel .section-title {
       font-size: clamp(2rem, 4vw, 3rem);
       line-height: 1.08;
     }
@@ -1396,7 +1412,7 @@
       text-align: center;
     }
 
-    .final h2 {
+    .final .cta-title {
       max-width: 820px;
       margin: 0 auto 16px;
       font-size: clamp(2rem, 4vw, 3.4rem);
@@ -1957,8 +1973,9 @@
 
       .section-head h2,
       .content h2,
-      .cta-row h2,
-      .final h2 {
+      .content .section-title,
+      .cta-row .cta-title,
+      .final .cta-title {
         font-size: clamp(1.72rem, 7.7vw, 2.28rem);
         line-height: 1.1;
         overflow-wrap: break-word;
@@ -2032,13 +2049,13 @@
         padding: 14px;
       }
 
-      .quick-card h2,
+      .quick-card .quick-title,
       .tier h3,
-      .note-panel h3,
-      .call-card h3,
-      .step h3,
+      .note-panel .panel-title,
+      .call-card .card-title,
+      .step .step-title,
       .finding h3,
-      .expert-card-body h3,
+      .expert-card-body .expert-card-title,
       .form-priority-item strong {
         overflow-wrap: break-word;
       }
@@ -2210,9 +2227,9 @@
         <a href="#csomagok">Csomagok</a>
         <a href="#rolam">Rólam</a>
       </div>
-      <a class="nav-cta" href="#hirdetes-kuldese">Elküldöm a hirdetést</a>
+      <a class="nav-cta" href="#hirdetes-kuldese">Ajánlatkérés</a>
       <div class="mobile-nav-actions">
-        <a class="nav-cta mobile-cta" href="#hirdetes-kuldese" aria-label="Elküldöm a hirdetést"><span class="mobile-cta-full">Elküldöm a hirdetést</span><span class="mobile-cta-short">Hirdetés</span></a>
+        <a class="nav-cta mobile-cta" href="#hirdetes-kuldese" aria-label="Hirdetés küldése"><span class="mobile-cta-full">Hirdetés küldése</span><span class="mobile-cta-short">Hirdetés</span></a>
         <button class="mobile-menu-toggle" type="button" aria-label="Menü megnyitása" aria-controls="mobile-menu" aria-expanded="false">
           <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M5 7h14"></path>
@@ -2226,10 +2243,10 @@
         </button>
       </div>
       <div class="mobile-menu" id="mobile-menu" aria-hidden="true" hidden>
-        <a href="#szolgaltatas">Szolgáltatás</a>
-        <a href="#csomagok">Csomagok</a>
-        <a href="#rolam">Rólam</a>
-        <a class="mobile-menu-cta" href="#hirdetes-kuldese">Elküldöm a hirdetést</a>
+        <a href="#szolgaltatas">Átvizsgálás</a>
+        <a href="#csomagok">Díjak</a>
+        <a href="#rolam">Szakértő</a>
+        <a class="mobile-menu-cta" href="#hirdetes-kuldese">Gyors ajánlatkérés</a>
       </div>
     </nav>
   </header>
@@ -2244,8 +2261,8 @@
           <p class="lead">Mielőtt foglalóznál, küldd el a kiszemelt autó hirdetését. Röviden átbeszéljük, mire érdemes figyelni, és milyen átvizsgálás ad reális biztonságot.</p>
           <p class="hero-identity">Az átvizsgálást személyesen végzem: <strong>Petőházi Bence</strong>, 13 év autószerelői tapasztalattal.</p>
           <div class="hero-actions">
-            <a class="button primary" href="#hirdetes-kuldese">Elküldöm a hirdetést</a>
-            <a class="button secondary phone-cta" href="tel:+36302422929" data-phone-cta data-phone-label="+36 30 242 2929">Telefonon egyeztetek</a>
+            <a class="button primary" href="#hirdetes-kuldese">Hirdetés elküldése</a>
+            <a class="button secondary phone-cta" href="tel:+36302422929" data-phone-cta data-phone-label="+36 30 242 2929">Telefonos egyeztetés</a>
           </div>
           <aside class="service-area-block" aria-label="Szolgáltatási terület">
             <span class="service-area-icon" aria-hidden="true">
@@ -2267,7 +2284,7 @@
             </picture>
           </figure>
           <aside class="quick-card">
-            <h2>Első lépés: hívás vagy hirdetés</h2>
+            <p class="quick-title">Első lépés: hívás vagy hirdetés</p>
             <p>Küldd el a linket, a típust, az évjáratot és a helyszínt. Röviden átbeszéljük, mire kell különösen figyelni ennél az autónál.</p>
           </aside>
         </div>
@@ -2291,17 +2308,17 @@
         <div class="call-grid">
           <article class="call-card">
             <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10.3 3.6 1.9 18a2 2 0 0 0 1.7 3h16.8a2 2 0 0 0 1.7-3L13.7 3.6a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></div>
-            <h3>Gyanúsan jó ajánlat</h3>
+            <p class="card-title">Gyanúsan jó ajánlat</p>
             <p>Ha az ár túl szép, a hirdetés kevés adatot mutat, vagy az eladó sürget, érdemes szakértővel megnézni.</p>
           </article>
           <article class="call-card">
             <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h6"/><path d="M14 2v6h6"/><path d="M16 13.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/><path d="m18.5 19 2.5 2.5"/><path d="M8 12h3"/><path d="M8 16h2"/></svg></div>
-            <h3>Bizonytalan előélet</h3>
+            <p class="card-title">Bizonytalan előélet</p>
             <p>Import autó, hiányos szervizkönyv, sok tulajdonos vagy furcsa kilométeróra esetén több jelből kell olvasni.</p>
           </article>
           <article class="call-card">
             <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="m5 7 7-3 7 3"/><path d="M5 7l-3 7h6L5 7Z"/><path d="M19 7l-3 7h6l-3-7Z"/><path d="M7 21h10"/></svg></div>
-            <h3>Ha nem akarsz érzelmi alapon dönteni</h3>
+            <p class="card-title">Ha nem akarsz érzelmi alapon dönteni</p>
             <p>Egy szép hirdetés és egy jó próbakör könnyen meggyőző lehet. Az átvizsgálás segít különválasztani a jó vételt a jól előadott problémától.</p>
           </article>
         </div>
@@ -2351,7 +2368,7 @@
             </ul>
           </div>
           <aside class="note-panel">
-            <h3>Fontos korlátok</h3>
+            <p class="panel-title">Fontos korlátok</p>
             <p>Az átvizsgálás a vásárlási kockázat csökkentésére szolgál. Nem ígér hibátlan autót, és nem helyettesíti a teljes megbontásos vagy márkaszervizes diagnózist.</p>
             <ul class="not-list">
               <li><span class="cross">×</span><span>Nincs alkatrészbontás, szétszerelés vagy rejtett belső hibák garantált feltárása.</span></li>
@@ -2366,12 +2383,12 @@
     <aside class="cta-band" aria-label="Kapcsolatfelvétel">
       <div class="cta-row">
         <div>
-          <h2>Kinéztél egy autót? Egyeztessünk, mielőtt lefoglalózod.</h2>
+          <p class="cta-title">Kinéztél egy autót? Egyeztessünk, mielőtt lefoglalózod.</p>
           <p>Rövid egyeztetés után gyorsan kiderül, milyen ellenőrzés ad reális biztonságot az adott típusnál.</p>
         </div>
         <div class="cta-actions">
-          <a class="button light" href="#hirdetes-kuldese">Elküldöm a hirdetést</a>
-          <a class="button secondary phone-cta" href="tel:+36302422929" data-phone-cta data-phone-label="+36 30 242 2929">Telefonon egyeztetek</a>
+          <a class="button light" href="#hirdetes-kuldese">Hirdetés linkje küldése</a>
+          <a class="button secondary phone-cta" href="tel:+36302422929" data-phone-cta data-phone-label="+36 30 242 2929">Hívás indítása</a>
         </div>
       </div>
     </aside>
@@ -2448,19 +2465,19 @@
         </div>
         <div class="process">
           <article class="step">
-            <h3>Felhívsz vagy elküldöd a hirdetést</h3>
+            <p class="step-title">Felhívsz vagy elküldöd a hirdetést</p>
             <p>Megkapom a linket, típust, évjáratot, helyszínt és az eladó alapadatait.</p>
           </article>
           <article class="step">
-            <h3>Egyeztetjük az autót és az időpontot</h3>
+            <p class="step-title">Egyeztetjük az autót és az időpontot</p>
             <p>Átbeszéljük, milyen csomag illik a helyzethez, és mire kell előre rákérdezni.</p>
           </article>
           <article class="step">
-            <h3>Helyszíni átvizsgálás és próbaút</h3>
+            <p class="step-title">Helyszíni átvizsgálás és próbaút</p>
             <p>A lehetőségek szerint diagnosztikával, próbaúttal és típusra jellemző ellenőrzésekkel.</p>
           </article>
           <article class="step">
-            <h3>Érthető összefoglaló</h3>
+            <p class="step-title">Érthető összefoglaló</p>
             <p>Megéri-e, mennyi az alkualap, mi sürgős, és milyen költségekkel érdemes számolni.</p>
           </article>
         </div>
@@ -2471,7 +2488,7 @@
       <div class="container report-layout">
         <div class="content">
           <p class="eyebrow">Minta szakvélemény</p>
-          <h2 id="report-title">Nem csak hibakódlista, hanem vásárlási döntést segítő összefoglaló.</h2>
+          <p id="report-title" class="section-title">Nem csak hibakódlista, hanem vásárlási döntést segítő összefoglaló.</p>
           <p>A jelentés vagy e-mailes összefoglaló a lényeges hibákat, kockázatokat és alkupontokat emeli ki. Így akkor is érthető marad, ha nem szerelőként gondolkodsz.</p>
           <ul class="report-list" style="margin-top: 24px;">
             <li><span class="tick">✓</span><span>Mérési és diagnosztikai megállapítások</span></li>
@@ -2496,15 +2513,15 @@
               <div class="metric"><strong>3 tétel</strong><span>első szervizköltség</span></div>
             </div>
             <div class="finding">
-              <h3>Azonnali javítási kockázat</h3>
+              <p class="card-title">Azonnali javítási kockázat</p>
               <p>Első futómű kopogás próbaúton hallható. Vásárlás előtt árazandó, alku során érdemes külön kezelni.</p>
             </div>
             <div class="finding">
-              <h3>Típusra jellemző figyelmeztetés</h3>
+              <p class="card-title">Típusra jellemző figyelmeztetés</p>
               <p>Szervizelőzmény alapján külön figyelmet igényel a vezérlés, hűtőrendszer és automata váltó karbantartása.</p>
             </div>
             <div class="finding">
-              <h3>Végső javaslat</h3>
+              <p class="card-title">Végső javaslat</p>
               <p>Megvásárolható, ha az eladó elfogadja a feltárt tételekhez igazított alkut és a szervizelés igazolható.</p>
             </div>
           </div>
@@ -2516,7 +2533,7 @@
       <div class="container bmw-layout">
         <div class="bmw-panel">
           <p class="eyebrow">BMW típusismeret</p>
-          <h2 id="bmw-title">BMW vásárlás előtt különösen fontos a típusismeret.</h2>
+          <p id="bmw-title" class="section-title">BMW vásárlás előtt különösen fontos a típusismeret.</p>
           <p>BMW-nél sokszor nem az a kérdés, hogy szép-e az autó, hanem hogy a motor, váltó, elektronika és korábbi karbantartás együtt milyen költségkockázatot jelent.</p>
           <ul class="bmw-list" style="margin-top: 22px;">
             <li><span class="tick">✓</span><span>Motorcsaládhoz kötött ismert hibák és szervizigények</span></li>
@@ -2542,7 +2559,7 @@
             <img src="about-me-photo-notext.png" alt="A Carvex átvizsgálást végző autószerelő műhelyben" width="1023" height="1537" loading="lazy">
           </picture>
           <div class="expert-card-body">
-            <h3>Petőházi Bence vagyok, a helyszíni átvizsgálást személyesen végzem.</h3>
+            <p class="expert-card-title">Petőházi Bence vagyok, a helyszíni átvizsgálást személyesen végzem.</p>
             <p>Nem autókat árulok. A vevő oldalán állok, és érthetően elmondom, mit jelent az autó állapota pénzben, kockázatban és döntésben.</p>
           </div>
         </article>
@@ -2567,44 +2584,44 @@
     <section id="gyik" class="band" aria-labelledby="faq-title" hidden>
       <div class="container">
         <div class="section-head">
-          <h2 id="faq-title">Gyakori kérdések</h2>
+          <p id="faq-title" class="section-title">Gyakori kérdések</p>
           <p>Rövid, egyenes válaszok a vásárlás előtti legfontosabb helyzetekre.</p>
         </div>
         <div class="faq-grid">
           <article class="faq">
-            <h3>Garanciát ad az átvizsgálás?</h3>
+            <p class="card-title">Garanciát ad az átvizsgálás?</p>
             <p>Nem. A vizsgálat a látható és ellenőrizhető kockázatokat tárja fel, és segít dönteni. Használt autónál későbbi hiba így is előfordulhat.</p>
           </article>
           <article class="faq">
-            <h3>Ott kell lennem az átvizsgáláson?</h3>
+            <p class="card-title">Ott kell lennem az átvizsgáláson?</p>
             <p>Nem feltétlenül, de hasznos lehet. Ha nem tudsz ott lenni, telefonon átbeszéljük az eredményt és a fontos döntési pontokat.</p>
           </article>
           <article class="faq">
-            <h3>Kereskedőnél és magáneladónál is működik?</h3>
+            <p class="card-title">Kereskedőnél és magáneladónál is működik?</p>
             <p>Igen, ha az eladó engedi az átvizsgálást, a próbaút és a szükséges ellenőrzések feltételei adottak.</p>
           </article>
           <article class="faq">
-            <h3>Mi van, ha az eladó nem engedi?</h3>
+            <p class="card-title">Mi van, ha az eladó nem engedi?</p>
             <p>Ez önmagában figyelmeztető jel lehet. Ilyenkor telefonon átbeszéljük, van-e értelme tovább foglalkozni az autóval.</p>
           </article>
           <article class="faq">
-            <h3>Mit jelent a megbontás nélküli vizsgálat?</h3>
+            <p class="card-title">Mit jelent a megbontás nélküli vizsgálat?</p>
             <p>Azt, hogy nem szerelünk szét alkatrészeket. Külső, működésbeli, diagnosztikai és próbaúti jelek alapján készül szakvélemény.</p>
           </article>
           <article class="faq">
-            <h3>Megmondod, hogy megvegyem-e?</h3>
+            <p class="card-title">Megmondod, hogy megvegyem-e?</p>
             <p>Igen, kapsz egy egyértelmű javaslatot: jó vételnek tűnik, csak alkuval érdemes, vagy inkább kerülendő. A végső döntés természetesen a tiéd.</p>
           </article>
           <article class="faq">
-            <h3>Ellenőrzöd az előéletet és a kilométert?</h3>
+            <p class="card-title">Ellenőrzöd az előéletet és a kilométert?</p>
             <p>A jeleket és elérhető adatokat értelmezem, de hivatalos előélet, kártörténet vagy finanszírozási státusz külön lekérdezést igényelhet.</p>
           </article>
           <article class="faq">
-            <h3>Milyen gyorsan lehet időpont?</h3>
+            <p class="card-title">Milyen gyorsan lehet időpont?</p>
             <p>Ez a helyszíntől és az eladó elérhetőségétől függ. A leggyorsabb út, ha telefonon hívsz, és elküldöd a hirdetést.</p>
           </article>
           <article class="faq">
-            <h3>BMW-n kívül más márkát is vállalsz?</h3>
+            <p class="card-title">BMW-n kívül más márkát is vállalsz?</p>
             <p>Igen. A BMW kiemelt erősség, de más típusoknál is a szerelői tapasztalat, diagnosztika és típushiba-kutatás alapján kapsz tanácsot.</p>
           </article>
         </div>
@@ -2682,11 +2699,11 @@
 
     <section id="kapcsolat" class="final">
       <div class="container">
-        <h2>Ne a vásárlás után derüljön ki, mit rejt az autó.</h2>
+        <p class="cta-title">Kérj szakértői átvizsgálást még a foglaló előtt.</p>
         <p>Küldd el a hirdetést, mielőtt foglalóznál.</p>
         <div class="cta-actions">
-          <a class="button primary" href="#hirdetes-kuldese">Elküldöm a hirdetést</a>
-          <a class="button light phone-cta" href="tel:+36302422929" data-phone-cta data-phone-label="+36 30 242 2929">Telefonon egyeztetek</a>
+          <a class="button primary" href="#hirdetes-kuldese">Átvizsgálást kérek</a>
+          <a class="button light phone-cta" href="tel:+36302422929" data-phone-cta data-phone-label="+36 30 242 2929">Telefonos kérdés</a>
         </div>
       </div>
     </section>
@@ -2718,7 +2735,7 @@
         <span>© 2026 Carvex. Minden jog fenntartva.</span>
         <nav class="footer-links" aria-label="Jogi információk">
           <a href="./impresszum.html">Impresszum</a>
-          <a href="./adatkezelesi-tajekoztato.html">Adatkezelési tájékoztató</a>
+          <a href="./adatkezelesi-tajekoztato.html">Adatvédelem</a>
           <a href="./aszf.html">ÁSZF</a>
         </nav>
       </div>
