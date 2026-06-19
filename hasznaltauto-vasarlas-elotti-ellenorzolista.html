@@ -13,7 +13,7 @@
   <meta property="og:title" content="Használtautó vásárlás előtti ellenőrzőlista | Carvex">
   <meta property="og:description" content="Ellenőrzési pontok használt autó vásárlása előtt, hogy a foglaló előtt tisztább döntést hozz.">
   <meta property="og:url" content="https://carvex.hu/hasznaltauto-vasarlas-elotti-ellenorzolista.html">
-  <meta property="og:image" content="https://carvex.hu/expert-photo-notext-1200.webp">
+  <meta property="og:image" content="https://carvex.hu/carvex-logo-transparent-720.webp">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,6 +57,17 @@
 
     a {
       color: inherit;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     .topbar {
@@ -134,7 +145,7 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.82fr);
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
       gap: 34px;
       align-items: center;
     }
@@ -206,38 +217,87 @@
       color: var(--brand-blue);
     }
 
-    .hero-media {
-      overflow: hidden;
+    .hero-panel {
       border: 1px solid rgba(16, 19, 22, 0.12);
       border-radius: var(--radius);
       background: #fff;
       box-shadow: var(--shadow);
+      padding: 22px;
     }
 
-    .hero-media img {
-      display: block;
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
+    .panel-title {
+      margin: 0 0 14px;
+      color: var(--brand-blue);
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 900;
+      text-transform: uppercase;
     }
 
-    .media-caption {
+    .score-list {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-top: 1px solid var(--line);
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .score-list li {
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      border-radius: var(--radius);
+      background: #f4f8fb;
+    }
+
+    .score {
+      display: inline-grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--brand-black);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+
+    .score-copy {
+      display: block;
+    }
+
+    .score-copy strong {
+      display: block;
+      line-height: 1.2;
+    }
+
+    .score-copy span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.35;
+    }
+
+    .toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 22px;
+    }
+
+    .toc a {
+      padding: 8px 11px;
+      border: 1px solid rgba(22, 88, 142, 0.2);
+      border-radius: 999px;
       background: #fff;
-    }
-
-    .media-caption span {
-      padding: 14px 12px;
-      color: #3f4b57;
-      font-size: 0.86rem;
+      color: var(--brand-blue);
+      text-decoration: none;
+      font-size: 0.9rem;
       font-weight: 800;
-      text-align: center;
-    }
-
-    .media-caption span + span {
-      border-left: 1px solid var(--line);
     }
 
     .content {
@@ -282,6 +342,43 @@
       background: #f4f8fb;
       color: #35414d;
       font-weight: 750;
+    }
+
+    .worksheet {
+      margin-bottom: 16px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 10px 32px rgba(16, 19, 22, 0.06);
+    }
+
+    .worksheet-header,
+    .worksheet-row {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1fr;
+      gap: 1px;
+      background: var(--line);
+    }
+
+    .worksheet-header span,
+    .worksheet-row span {
+      padding: 13px 14px;
+      background: #fff;
+    }
+
+    .worksheet-header span {
+      background: var(--brand-black);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .worksheet-row span {
+      color: #384552;
+      font-size: 0.94rem;
     }
 
     .section-grid {
@@ -389,6 +486,37 @@
       background: var(--brand-red);
     }
 
+    .red-flags {
+      margin-top: 16px;
+      padding: 24px;
+      border: 1px solid rgba(231, 34, 46, 0.2);
+      border-radius: var(--radius);
+      background: #fff7f7;
+    }
+
+    .red-flags h2 {
+      margin-bottom: 12px;
+      color: #b91c1c;
+      font-size: 1.16rem;
+    }
+
+    .red-flag-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .red-flag-list li {
+      padding: 12px;
+      border-radius: var(--radius);
+      background: #fff;
+      color: #394653;
+      font-weight: 750;
+    }
+
     .cta-card {
       margin-top: 16px;
       padding: 28px;
@@ -455,17 +583,38 @@
       .hero-grid,
       .quick-panel,
       .section-grid,
-      .decision-grid {
+      .decision-grid,
+      .red-flag-list {
         grid-template-columns: 1fr;
       }
 
-      .media-caption {
+      .worksheet-header {
+        display: none;
+      }
+
+      .worksheet-row {
         grid-template-columns: 1fr;
       }
 
-      .media-caption span + span {
-        border-top: 1px solid var(--line);
-        border-left: 0;
+      .worksheet-row span::before {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--brand-blue);
+        font-size: 0.75rem;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .worksheet-row span:nth-child(1)::before {
+        content: "Adat";
+      }
+
+      .worksheet-row span:nth-child(2)::before {
+        content: "Mit nézz meg";
+      }
+
+      .worksheet-row span:nth-child(3)::before {
+        content: "Miért fontos";
       }
 
       .checklist-card {
@@ -492,7 +641,9 @@
 
       .checklist-card,
       .quick-panel,
-      .decision-card {
+      .decision-card,
+      .red-flags,
+      .worksheet {
         box-shadow: none;
         break-inside: avoid;
       }
@@ -527,18 +678,21 @@
               <a class="button primary" href="./#hirdetes-kuldese">Átvizsgálást kérek</a>
               <a class="button secondary" href="#ellenorzolista">Megnézem a listát</a>
             </div>
+            <nav class="toc" aria-label="Ellenőrzőlista szakaszai">
+              <a href="#alapadatok">Alapadatok</a>
+              <a href="#ellenorzolista">Ellenőrzés</a>
+              <a href="#piros-zaszlok">Piros zászlók</a>
+              <a href="#dontesi-pontok">Döntés</a>
+            </nav>
           </div>
-          <figure class="hero-media">
-            <picture>
-              <source type="image/webp" srcset="expert-photo-notext-720.webp 720w, expert-photo-notext-1200.webp 1200w" sizes="(max-width: 780px) calc(100vw - 32px), 430px">
-              <img src="expert-photo-notext.png" alt="Carvex szakértő használtautó motorterét vizsgálja" width="1448" height="1086">
-            </picture>
-            <figcaption class="media-caption">
-              <span>Hirdetés</span>
-              <span>Próbaút</span>
-              <span>Foglaló</span>
-            </figcaption>
-          </figure>
+          <aside class="hero-panel" aria-label="Gyors használati útmutató">
+            <p class="panel-title">3 perces szűrés</p>
+            <ul class="score-list">
+              <li><span class="score">1</span><span class="score-copy"><strong>Azonosítsd az autót</strong><span>Rendszám, alvázszám, tulajdonos, okmányok.</span></span></li>
+              <li><span class="score">2</span><span class="score-copy"><strong>Keress ellentmondást</strong><span>Futás, szervizmúlt, sérülés, ár, eladói történet.</span></span></li>
+              <li><span class="score">3</span><span class="score-copy"><strong>Dönts kockázat alapján</strong><span>Megnézhető, csak átvizsgálással, vagy kerülendő.</span></span></li>
+            </ul>
+          </aside>
         </div>
       </div>
     </section>
@@ -556,6 +710,30 @@
             <li>Ha több jel is hibára utal, az alku helyett először diagnózis kell.</li>
           </ul>
         </article>
+
+        <section class="worksheet" id="alapadatok" aria-labelledby="alapadatok-cim">
+          <div class="worksheet-header" aria-hidden="true">
+            <span>Adat</span>
+            <span>Mit nézz meg</span>
+            <span>Miért fontos</span>
+          </div>
+          <h2 id="alapadatok-cim" class="sr-only">Alapadatok ellenőrzése</h2>
+          <div class="worksheet-row">
+            <span>Rendszám vagy alvázszám</span>
+            <span>Legyen ellenőrizhető, ne csak szóban kapd meg.</span>
+            <span>Előélet, futás és kártörténet csak így köthető az autóhoz.</span>
+          </div>
+          <div class="worksheet-row">
+            <span>Tulajdonos és eladó</span>
+            <span>Ki írja alá az adásvételit, van-e meghatalmazás?</span>
+            <span>A zavaros tulajdonosi háttér szerződéses kockázat.</span>
+          </div>
+          <div class="worksheet-row">
+            <span>Szervizmúlt</span>
+            <span>Számlák, digitális bejegyzések, időrend és kilométerek.</span>
+            <span>Az állapot mellett ez adja a valódi alkualapot.</span>
+          </div>
+        </section>
 
         <div class="section-grid" id="ellenorzolista">
           <article class="checklist-card">
@@ -610,6 +788,18 @@
             </div>
           </article>
         </div>
+
+        <section class="red-flags" id="piros-zaszlok" aria-labelledby="piros-zaszlok-cim">
+          <h2 id="piros-zaszlok-cim">Piros zászlók, amikor ne fizess foglalót</h2>
+          <ul class="red-flag-list">
+            <li>Az eladó nem engedi a független átvizsgálást.</li>
+            <li>Az okmányok, futásteljesítmény vagy tulajdonosi háttér nem tiszta.</li>
+            <li>Hidegindítás helyett már bemelegített autóval várnak.</li>
+            <li>Frissen mosott motortér takarja a szivárgásnyomokat.</li>
+            <li>A próbaút túl rövid, vagy bizonyos sebességeket/utakat kerülnek.</li>
+            <li>Az eladó sürget, de nem ad ellenőrizhető bizonyítékot.</li>
+          </ul>
+        </section>
 
         <section class="decision-card" aria-labelledby="dontesi-pontok">
           <h2 id="dontesi-pontok">Döntési pont foglaló előtt</h2>
