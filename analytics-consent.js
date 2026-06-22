@@ -34,6 +34,27 @@
 
   window.carvexTrackEvent = trackEvent;
 
+  window.gtagSendEvent = function gtagSendEvent(url) {
+    const callback = function () {
+      if (typeof url === 'string') {
+        window.location = url;
+      }
+    };
+
+    if (localStorage.getItem(storageKey) !== acceptedValue || typeof window.gtag !== 'function') {
+      callback();
+      return false;
+    }
+
+    window.gtag('event', 'conversion_event_submit_lead_form', {
+      event_callback: callback,
+      event_timeout: 2000
+    });
+    return false;
+  };
+
+  window.gtag_report_conversion = window.gtagSendEvent;
+
   const setConsent = (value) => {
     localStorage.setItem(storageKey, value);
     document.querySelector('[data-analytics-consent]')?.setAttribute('hidden', '');
