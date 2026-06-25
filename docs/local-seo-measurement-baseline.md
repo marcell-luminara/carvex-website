@@ -23,6 +23,7 @@ Track local rankings manually or in a rank tracker from a Hungary location setti
 | használtautó átvizsgálás Kőszeg | Kőszeg |  |  |  |
 | autó átvizsgálás vásárlás előtt Kőszeg | Kőszeg |  |  |  |
 | használtautó átvizsgálás Szombathely | Szombathely |  |  |  |
+| autó átvizsgálás szombathely | Szombathely |  |  |  |
 | autó átvizsgálás vásárlás előtt Szombathely | Szombathely |  |  |  |
 | használtautó átvizsgálás Vas megye | Vas megye |  |  |  |
 | vásárlás előtti autó átvizsgálás Vas megye | Vas megye |  |  |  |
