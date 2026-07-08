@@ -24,6 +24,7 @@ Track local rankings manually or in a rank tracker from a Hungary location setti
 | autó átvizsgálás vásárlás előtt Kőszeg | Kőszeg |  |  |  |
 | használtautó átvizsgálás Szombathely | Szombathely |  |  |  |
 | autó átvizsgálás szombathely | Szombathely |  |  |  |
+| szombathely autó átvizsgálás | Szombathely |  |  |  |
 | autó átvizsgálás vásárlás előtt Szombathely | Szombathely |  |  |  |
 | használtautó átvizsgálás Vas megye | Vas megye |  |  |  |
 | vásárlás előtti autó átvizsgálás Vas megye | Vas megye |  |  |  |
@@ -34,6 +35,7 @@ Track local rankings manually or in a rank tracker from a Hungary location setti
 | használtautó átvizsgálás Zala megye | Zala megye |  |  |  |
 | autó átvizsgálás vásárlás előtt Zala megye | Zala megye |  |  |  |
 | használtautó átvizsgálás országosan | Magyarország |  |  |  |
+| használt autó átvizsgálás | Magyarország |  |  |  |
 | országos autó átvizsgálás vásárlás előtt | Magyarország |  |  |  |
 | jármű átvizsgálás vásárlás előtt | Magyarország |  |  |  |
 | BMW átvizsgálás vásárlás előtt | Regional |  |  |  |
