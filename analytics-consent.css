@@ -55,6 +55,22 @@
   color: #101316;
 }
 
+.analytics-consent-settings {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.78);
+  font: inherit;
+  cursor: pointer;
+}
+
+.analytics-consent-settings:hover,
+.analytics-consent-settings:focus-visible {
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 @media (max-width: 520px) {
   .analytics-consent {
     inset: auto 10px 10px;

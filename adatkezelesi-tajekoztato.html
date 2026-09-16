@@ -1,6 +1,32 @@
 <!doctype html>
 <html lang="hu">
 <head>
+  <!-- Google Consent Mode v2 -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+    window.gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      wait_for_update: 500
+    });
+    try {
+      var storedConsent = window.localStorage.getItem('carvex_measurement_consent_v2');
+      if (storedConsent === 'accepted' || storedConsent === 'declined') {
+        var consentState = storedConsent === 'accepted' ? 'granted' : 'denied';
+        window.gtag('consent', 'update', {
+          ad_storage: consentState,
+          ad_user_data: consentState,
+          ad_personalization: consentState,
+          analytics_storage: consentState
+        });
+        window.carvexConsentState = consentState;
+      }
+    } catch (error) {}
+  </script>
+  <!-- End Google Consent Mode v2 -->
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -421,11 +447,18 @@
             <td>GDPR 6. cikk (1) a) pont: az érintett hozzájárulása.</td>
             <td>A Google Analytics beállításai szerinti megőrzési idő, illetve a hozzájárulás visszavonásáig.</td>
           </tr>
+          <tr>
+            <td>Hirdetési kampányok eredményességének és a kapcsolatfelvételeknek a mérése</td>
+            <td>Google Ads által kezelt konverziós adatok, például a hirdetésből érkező látogatás, a sikeres kapcsolatfelvétel, eszköz- és böngészőadatok, valamint hirdetési kattintásazonosítók.</td>
+            <td>GDPR 6. cikk (1) a) pont: az érintett hozzájárulása.</td>
+            <td>A Google Ads beállításai szerinti megőrzési idő, illetve a hozzájárulás visszavonásáig.</td>
+          </tr>
         </tbody>
       </table>
 
       <h2>3. Sütik és külső szolgáltatások</h2>
-      <p>A weboldal analitikai sütiket csak a látogató hozzájárulása után használ. Hozzájárulás esetén a Carvex Google Analytics szolgáltatást használhat az oldalmegtekintések, telefonos és e-mailes kattintások, csomagválasztási kattintások és űrlapbeküldési események mérésére. A hozzájárulás hiányában a Google Analytics mérőkód nem töltődik be.</p>
+      <p>A weboldal a Google Consent Mode v2 használatával alapértelmezetten megtagadott állapotot állít be az analitikai és hirdetési célú adattároláshoz. A hozzájárulás megadása előtt analitikai vagy hirdetési sütik nem kerülnek elhelyezésre; a Google címkéi ugyanakkor hozzájárulási állapotra vonatkozó, süti nélküli technikai jeleket küldhetnek.</p>
+      <p>Hozzájárulás esetén a Carvex a Google Analytics szolgáltatással mérheti az oldalmegtekintéseket és a kapcsolatfelvételi eseményeket, a Google Ads szolgáltatással pedig a hirdetésekből érkező sikeres kapcsolatfelvételeket. A választás a látogató böngészőjének helyi tárhelyén marad meg. A hozzájárulás bármikor módosítható vagy visszavonható a weboldal láblécében található „Süti beállítások” gombbal.</p>
       <p>A weboldalon található kapcsolatfelvételi űrlap a Netlify Forms szolgáltatáson keresztül továbbítja a megadott adatokat a Carvex részére. Az e-mail link megnyitása a látogató saját levelezőprogramját használja. A Facebookra és Instagramra mutató külső linkek megnyitásakor az adott szolgáltató saját adatkezelési szabályai irányadók.</p>
 
       <h2>4. Adatfeldolgozók</h2>
@@ -435,6 +468,10 @@
           <tr>
             <th>Űrlapszolgáltató</th>
             <td>Netlify, Inc., 101 2nd Street, San Francisco, CA 94105, Amerikai Egyesült Államok</td>
+          </tr>
+          <tr>
+            <th>Analitikai és hirdetésmérési szolgáltató</th>
+            <td>Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Írország – Google Analytics, Google Ads és Google Tag Manager. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google adatvédelmi irányelvek</a></td>
           </tr>
           <tr>
             <th>Számlázási szolgáltató</th>

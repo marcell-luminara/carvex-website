@@ -1,18 +1,48 @@
 (function () {
   const measurementId = 'G-D2RRVBTMME';
-  const storageKey = 'carvex_analytics_consent';
+  const storageKey = 'carvex_measurement_consent_v2';
   const acceptedValue = 'accepted';
   const declinedValue = 'declined';
+
+  const getStoredConsent = () => {
+    try {
+      return window.localStorage.getItem(storageKey);
+    } catch (error) {
+      return null;
+    }
+  };
+
+  const storeConsent = (value) => {
+    try {
+      window.localStorage.setItem(storageKey, value);
+    } catch (error) {
+      // Consent still applies to the current page when storage is unavailable.
+    }
+  };
+
+  const ensureGtag = () => {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function gtag() {
+      window.dataLayer.push(arguments);
+    };
+  };
+
+  const updateGoogleConsent = (state) => {
+    ensureGtag();
+    window.gtag('consent', 'update', {
+      ad_storage: state,
+      ad_user_data: state,
+      ad_personalization: state,
+      analytics_storage: state
+    });
+    window.carvexConsentState = state;
+  };
 
   const loadAnalytics = () => {
     if (window.carvexAnalyticsLoaded) return;
     window.carvexAnalyticsLoaded = true;
 
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function gtag() {
-      window.dataLayer.push(arguments);
-    };
-
+    ensureGtag();
     window.gtag('js', new Date());
     window.gtag('config', measurementId, {
       anonymize_ip: true,
@@ -26,7 +56,7 @@
   };
 
   const trackEvent = (eventName, parameters = {}) => {
-    if (localStorage.getItem(storageKey) !== acceptedValue || typeof window.gtag !== 'function') {
+    if (getStoredConsent() !== acceptedValue || typeof window.gtag !== 'function') {
       return;
     }
     window.gtag('event', eventName, parameters);
@@ -35,7 +65,8 @@
   window.carvexTrackEvent = trackEvent;
 
   const setConsent = (value) => {
-    localStorage.setItem(storageKey, value);
+    storeConsent(value);
+    updateGoogleConsent(value === acceptedValue ? 'granted' : 'denied');
     document.querySelector('[data-analytics-consent]')?.setAttribute('hidden', '');
     if (value === acceptedValue) {
       loadAnalytics();
@@ -44,17 +75,21 @@
   };
 
   const injectBanner = () => {
-    if (document.querySelector('[data-analytics-consent]')) return;
+    const existingBanner = document.querySelector('[data-analytics-consent]');
+    if (existingBanner) {
+      existingBanner.removeAttribute('hidden');
+      return;
+    }
 
     const banner = document.createElement('aside');
     banner.className = 'analytics-consent';
     banner.setAttribute('data-analytics-consent', '');
-    banner.setAttribute('aria-label', 'Analitikai süti beállítás');
+    banner.setAttribute('aria-label', 'Analitikai és hirdetési süti beállítás');
     banner.innerHTML = `
-      <p>Analitikai sütiket csak akkor használunk, ha elfogadod. Ezek segítenek látni, mely oldalak és kapcsolatfelvételi gombok működnek jól. <a href="./adatkezelesi-tajekoztato.html">Adatkezelési tájékoztató</a></p>
+      <p>Analitikai és hirdetési sütiket csak akkor használunk, ha elfogadod. Ezek segítenek mérni az oldal használatát és a hirdetésekből érkező kapcsolatfelvételeket. <a href="./adatkezelesi-tajekoztato.html">Adatkezelési tájékoztató</a></p>
       <div class="analytics-consent__actions">
-        <button class="analytics-consent__accept" type="button">Elfogadom</button>
-        <button class="analytics-consent__decline" type="button">Nem kérem</button>
+        <button class="analytics-consent__accept" type="button">Összes elfogadása</button>
+        <button class="analytics-consent__decline" type="button">Elutasítom</button>
       </div>
     `;
 
@@ -62,6 +97,22 @@
     banner.querySelector('.analytics-consent__decline').addEventListener('click', () => setConsent(declinedValue));
     document.body.appendChild(banner);
   };
+
+  const injectSettingsControl = () => {
+    if (document.querySelector('[data-consent-settings]')) return;
+
+    const button = document.createElement('button');
+    button.className = 'analytics-consent-settings';
+    button.setAttribute('data-consent-settings', '');
+    button.type = 'button';
+    button.textContent = 'Süti beállítások';
+    button.addEventListener('click', injectBanner);
+
+    const footerLinks = document.querySelector('footer .footer-links');
+    (footerLinks || document.body).appendChild(button);
+  };
+
+  injectSettingsControl();
 
   document.addEventListener('click', (event) => {
     const link = event.target.closest('a[href]');
@@ -84,9 +135,17 @@
     }
   }, { capture: true });
 
-  if (localStorage.getItem(storageKey) === acceptedValue) {
+  const storedConsent = getStoredConsent();
+  if (storedConsent === acceptedValue) {
+    if (window.carvexConsentState !== 'granted') {
+      updateGoogleConsent('granted');
+    }
     loadAnalytics();
-  } else if (!localStorage.getItem(storageKey)) {
+  } else if (storedConsent === declinedValue) {
+    if (window.carvexConsentState !== 'denied') {
+      updateGoogleConsent('denied');
+    }
+  } else {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', injectBanner);
     } else {
