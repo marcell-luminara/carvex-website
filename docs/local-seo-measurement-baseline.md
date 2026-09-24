@@ -74,7 +74,7 @@ Use this table as the source of truth for CAR-45, CAR-46, and CAR-47.
 | Source | URL | Type | Target URL | Anchor text | Contact/submission date | Live date | Status | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Google Business Profile |  | GBP profile | https://carvex.hu/ | Carvex | 2026-06-19 |  | Verification pending | Video verification required. |
-| Facebook | https://www.facebook.com/carvex.hu | Social profile | https://carvex.hu/ | Carvex |  |  | To verify | Confirm website, phone, email, and service-area wording. |
+| Facebook | https://www.facebook.com/profile.php?id=61589604058700 | Social profile | https://carvex.hu/ | Carvex |  |  | To verify | Confirm website, phone, email, and service-area wording. |
 | Instagram | https://www.instagram.com/carvex.hu/ | Social profile | https://carvex.hu/ | Carvex |  |  | To verify | Confirm bio link and contact details. |
 
 ## Backlink milestones
